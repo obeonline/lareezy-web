@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600">
+  <title>The Skiddle Bandana</title>
+  <defs>
+    <pattern id="bp" width="82" height="82" patternUnits="userSpaceOnUse">
+      <g transform="scale(0.52)">
+        <path d="M52 136 C16 118 2 84 16 54 C28 26 58 12 78 26 C96 39 96 68 80 78
+                 C68 86 50 82 47 70 C45 62 50 55 58 55 C52 66 62 74 72 68
+                 C84 60 84 42 72 34 C58 25 36 34 27 56 C15 84 26 114 52 136 Z"
+              fill="none" stroke="#f0a81e" stroke-width="5"/>
+      </g>
+      <circle cx="62" cy="20" r="3" fill="#f0a81e"/>
+      <circle cx="70" cy="54" r="2.2" fill="#f0a81e"/>
+      <circle cx="26" cy="74" r="2.2" fill="#f0a81e"/>
+    </pattern>
+    <filter id="bs" x="-25%" y="-25%" width="150%" height="150%">
+      <feDropShadow dx="0" dy="16" stdDeviation="16" flood-color="#17100e" flood-opacity="0.28"/>
+    </filter>
+  </defs>
+
+  <rect width="600" height="600" fill="#fef6e0"/>
+
+  <g transform="translate(300 300) rotate(-7)" filter="url(#bs)">
+    <!-- cloth -->
+    <rect x="-185" y="-185" width="370" height="370" rx="6" fill="#c8102e"/>
+    <rect x="-185" y="-185" width="370" height="370" rx="6" fill="url(#bp)"/>
+    <!-- ornate border -->
+    <rect x="-185" y="-185" width="370" height="370" rx="6" fill="none" stroke="#f0a81e" stroke-width="7"/>
+    <rect x="-163" y="-163" width="326" height="326" fill="none" stroke="#f0a81e" stroke-width="3"/>
+    <rect x="-152" y="-152" width="304" height="304" fill="none" stroke="#f0a81e" stroke-width="2" stroke-dasharray="3 9"/>
+    <!-- title woven into the border, as on the real thing -->
+    <text x="-20" y="177" text-anchor="middle" font-family="Georgia, serif" font-weight="700"
+          font-size="13" letter-spacing="3.5" fill="#f0a81e">SKIDDLE BANDANA</text>
+    <!-- centre medallion -->
+    <g transform="translate(0 6)">
+      <circle r="74" fill="#85081e" stroke="#f0a81e" stroke-width="4"/>
+      <circle r="60" fill="none" stroke="#f0a81e" stroke-width="2" stroke-dasharray="2 8"/>
+      <g transform="translate(0 -14)">
+        <path d="M-34 0 C-18 -20 18 -20 34 0 C18 20 -18 20 -34 0 Z" fill="#fef6e0" stroke="#17100e" stroke-width="3"/>
+        <circle r="10" fill="#17100e"/>
+        <circle cx="3.5" cy="-3.5" r="3" fill="#fef6e0"/>
+      </g>
+      <text x="0" y="42" text-anchor="middle" font-family="Georgia, serif" font-weight="700"
+            font-size="15" letter-spacing="3" fill="#f0a81e">NOLA</text>
+    </g>
+    <!-- folded corner, reverse side -->
+    <path d="M185 -185 L185 -92 L92 -185 Z" fill="#f7eedd" stroke="#17100e" stroke-width="2.5" stroke-linejoin="round"/>
+    <path d="M185 -185 L185 -92 L92 -185 Z" fill="#17100e" fill-opacity="0.06"/>
+  </g>
+</svg>

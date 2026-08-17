@@ -2,110 +2,232 @@
 <html>
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <script src="./support.js"></script>
+<script src="./data.js"></script>
 </head>
 <body>
 <x-dc>
 <helmet>
-  <link rel="stylesheet" href="_ds/organic-588001cc-2b10-4449-b148-1d8890f3c704/styles.css">
-  <script src="_ds/organic-588001cc-2b10-4449-b148-1d8890f3c704/_ds_bundle.js"></script>
+  <title>About — La Reezy</title>
+  <meta name="theme-color" content="#c8102e">
+  <meta name="description" content="Khayree Salahuddin — La Reezy. Rapper, producer and activist from the 12th Ward of New Orleans, founder of the UTH Foundation.">
+  <meta property="og:title" content="About La Reezy">
+  <meta property="og:description" content="From the 12th Ward. Rap-tivism, the UTH Foundation, and the road to Skiddle Bandana.">
+  <meta property="og:image" content="assets/press-xxl.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@lareezymusic">
+  <link rel="icon" href="assets/art/favicon.svg">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="_ds/skiddle-bandana/styles.css">
   <script src="image-slot.js"></script>
-  <style>
-    body { margin: 0; text-wrap: pretty; overflow-x: clip; background: var(--color-bg); color: var(--color-text); font-family: var(--font-body); }
-    a { color: var(--color-accent-700); }
-    a:hover { color: var(--color-accent-800); }
-  </style>
+  <script src="site.js"></script>
 </helmet>
 
-<nav class="nav" style="padding-inline: max(48px, calc((100% - 1200px) / 2 + 48px))" data-screen-label="Nav">
-  <span class="nav-brand">LA REEZY</span>
+<nav class="nav" data-screen-label="Nav">
+  <a class="nav-brand" href="Home.dc.html" style="text-decoration: none; color: inherit">LA REEZY</a>
+  <a class="sb-navlink" href="Home.dc.html">Home</a>
+  <a class="sb-navlink" href="Tour.dc.html">Tour</a>
+  <a class="sb-navlink" href="Music.dc.html">Music</a>
+  <a class="sb-navlink" href="Merch.dc.html">Merch</a>
+  <a class="sb-navlink" href="About.dc.html" aria-current="page">About</a>
+  <a class="sb-navsocial sb-social" href="https://www.instagram.com/lareezymusic/" target="_blank" rel="noopener" aria-label="Instagram" style="width: 40px; height: 40px">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9zm0 2a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM17.8 6a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4z"/></svg>
+  </a>
+  <a class="btn btn-primary sb-navcta" href="{{ ticketsUrl }}" target="_blank" rel="noopener">Tickets</a>
+  <button class="sb-menu-toggle" type="button" data-action="menu-open" aria-label="Open menu">
+    <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><rect x="3" y="6" width="18" height="2.4" rx="1.2"/><rect x="3" y="11" width="18" height="2.4" rx="1.2"/><rect x="3" y="16" width="18" height="2.4" rx="1.2"/></svg>
+  </button>
+</nav>
+
+<div class="sb-menu" id="sb-menu" data-open="false" role="dialog" aria-modal="true" aria-label="Menu">
+  <button class="btn" type="button" data-action="menu-close" style="align-self: flex-end; background: var(--color-accent-900); color: var(--color-ink-invert); border-color: var(--color-accent-2)">Close</button>
   <a href="Home.dc.html">Home</a>
   <a href="Tour.dc.html">Tour</a>
   <a href="Music.dc.html">Music</a>
   <a href="Merch.dc.html">Merch</a>
-  <a href="About.dc.html" style="color: var(--color-accent-700); font-weight: 700">About</a>
-  <a class="btn btn-primary" href="https://chancestuff.com" target="_blank" rel="noopener">Get tickets</a>
-</nav>
+  <a href="About.dc.html">About</a>
+  <a href="{{ ticketsUrl }}" target="_blank" rel="noopener" style="color: var(--color-accent-2-300)">Tickets &#8599;</a>
+</div>
 
-<div style="max-width: 1200px; margin: 0 auto; padding: 0 48px">
-
-  <section data-screen-label="About hero" style="position: relative; display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 6fr); gap: 40px 72px; align-items: center; padding: 80px 0 56px">
-    <div style="position: absolute; right: -70px; top: -150px; width: 400px; height: 400px; border-radius: 50%; background: var(--color-accent-2-200); pointer-events: none; z-index: -1"></div>
+<header class="sb-paisley sb-veil sb-on-crimson" data-screen-label="About hero" style="border-bottom: 3px solid var(--color-text)">
+  <div class="sb-shell sb-split" style="padding-block: clamp(44px, 7vw, 80px)">
     <div>
-      <span style="display: block; font-size: 13px; line-height: 14px; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 600; color: var(--color-accent-700); margin: 0 0 18px">About La Reezy</span>
-      <h1 style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: clamp(44px, 5.6vw, 76px); line-height: 1.06; margin: 0 0 0 -0.028em">From LaReezyana, <span style="color: var(--color-accent)">with love.</span></h1>
-      <p style="font-size: 17px; line-height: 28px; max-width: 52ch; margin: 28px 0 0">La Reezy calls his home LaReezyana — his own map of New Orleans, Louisiana. He raps the way the city sounds: jazz and soul under trap drums, stories about family, grief and loyalty told with genuine positivity and hunger for greatness.</p>
-      <p style="font-size: 15.5px; line-height: 28px; max-width: 52ch; margin: 20px 0 0; color: color-mix(in srgb, var(--color-text) 78%, transparent)">His moniker — Leader of da UTH (Utilize Time Here) — is a message to young people: lead with purpose, self-awareness and intention. In 2026 that message put him in the XXL Freshman Class and on the road with Chance the Rapper.</p>
+      <span class="sb-eyebrow">Khayree Salahuddin &#183; 12th Ward</span>
+      <h1 class="sb-poster sb-poster-shadow" style="font-size: clamp(44px, 8.4vw, 88px); color: var(--color-ink-invert); margin-bottom: var(--space-4)">From LaReezyana,<br>with love.</h1>
+      <p style="max-width: 50ch; color: color-mix(in srgb, var(--color-ink-invert) 90%, transparent)">
+        He started making music at fourteen, near Napoleon Avenue. He produces and engineers his own records. At twenty-one he made the 2026 XXL Freshman Class and put out a debut that pulls jazz, soul and trap into one story about family, grief and loyalty.
+      </p>
+      <p style="max-width: 50ch; color: color-mix(in srgb, var(--color-ink-invert) 90%, transparent)">
+        He calls it <strong>rap-tivism</strong> &#8212; the music and the work are the same job.
+      </p>
     </div>
-    <figure class="washed" style="margin: 0; width: min(440px, 100%); justify-self: end; border-radius: 32px; overflow: hidden; box-shadow: var(--shadow-lg)">
-      <image-slot id="about-hero" shape="rect" src="assets/nola-park.jpg" placeholder="Drop a New Orleans shot" style="width: 100%; aspect-ratio: 1 / 1"></image-slot>
+    <figure class="sb-frame" style="justify-self: center; width: min(100%, 400px)">
+      <image-slot id="about-hero" shape="rect" src="assets/nola-park.jpg" placeholder="Drop a New Orleans shot" class="washed" style="width: 100%; aspect-ratio: 1 / 1"></image-slot>
     </figure>
-  </section>
+  </div>
+</header>
 
-  <section data-screen-label="Milestones" style="padding: 40px 0 40px">
-    <span style="display: block; font-size: 13px; line-height: 14px; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 600; color: var(--color-accent-700); margin: 0 0 18px">Milestones</span>
-    <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 56px; max-width: 980px">
-      <sc-for list="{{ milestones }}" as="m" hint-placeholder-count="4">
-        <div style="display: flex; gap: 16px; align-items: baseline">
-          <span style="width: 14px; height: 14px; border-radius: 50%; background: var(--color-accent); flex: none; transform: translateY(1px)"></span>
-          <div>
-            <div style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 20px; line-height: 28px">{{ m.title }}</div>
-            <div style="font-size: 14px; line-height: 22px; color: color-mix(in srgb, var(--color-text) 70%, transparent)">{{ m.detail }}</div>
-          </div>
-        </div>
+<div class="sb-ticker" aria-hidden="true">
+  <div class="sb-ticker-track">
+    <span>LEADER OF DA UTH &#183; UTILIZE TIME HERE &#183; LEADER OF DA UTH &#183; UTILIZE TIME HERE &#183; LEADER OF DA UTH &#183; UTILIZE TIME HERE &#183;&nbsp;</span>
+    <span>LEADER OF DA UTH &#183; UTILIZE TIME HERE &#183; LEADER OF DA UTH &#183; UTILIZE TIME HERE &#183; LEADER OF DA UTH &#183; UTILIZE TIME HERE &#183;&nbsp;</span>
+  </div>
+</div>
+
+<!-- =============================================== UTH FOUNDATION -->
+<section class="sb-shell" data-screen-label="UTH Foundation" style="padding-block: clamp(40px, 6vw, 72px)">
+  <div class="sb-split" style="background: var(--color-text); border: var(--border-hard); border-radius: var(--radius-lg); box-shadow: var(--shadow-hard); padding: clamp(26px, 4vw, 48px); color: var(--color-ink-invert)">
+    <div>
+      <span class="sb-eyebrow" style="color: var(--color-accent-2-300)">The UTH Foundation</span>
+      <h2 style="color: var(--color-ink-invert)">Utilize Time Here.</h2>
+      <p style="max-width: 50ch; color: color-mix(in srgb, var(--color-ink-invert) 86%, transparent)">
+        The nonprofit he founded to close opportunity gaps for New Orleans young people &#8212; leadership, mentorship and community advocacy. It is where the name &#8220;Leader of da UTH&#8221; actually comes from, and it earned him the Hip Hop Museum&#8217;s <em>Next Up</em> Award in October 2025.
+      </p>
+    </div>
+    <div style="justify-self: center">
+      <img src="assets/art/crest.svg" alt="LaReezyana crest" style="width: min(100%, 210px)">
+    </div>
+  </div>
+</section>
+
+<!-- ===================================================== MILESTONES -->
+<section class="sb-shell" data-screen-label="Milestones" style="padding-bottom: clamp(40px, 6vw, 72px)">
+  <div class="sb-sectionhead">
+    <div>
+      <span class="sb-eyebrow">The run</span>
+      <h2 style="margin: 0">How he got here</h2>
+    </div>
+  </div>
+  <div class="sb-grid-2">
+    <sc-for list="{{ milestones }}" as="m" hint-placeholder-count="6">
+      <div class="card" style="flex-direction: row; gap: var(--space-4); align-items: flex-start">
+        <span class="sb-poster" style="font-size: 26px; color: var(--color-accent); min-width: 62px">{{ m.year }}</span>
+        <span>
+          <strong style="display: block; font-size: 16px; margin-bottom: 4px">{{ m.title }}</strong>
+          <span class="text-muted" style="font-size: 14px; line-height: 1.5">{{ m.detail }}</span>
+        </span>
+      </div>
+    </sc-for>
+  </div>
+</section>
+
+<!-- ========================================================= PHOTOS -->
+<section class="sb-shell" data-screen-label="Photos" style="padding-bottom: clamp(40px, 6vw, 72px)">
+  <div class="sb-split-even">
+    <figure class="sb-frame">
+      <image-slot id="about-press-1" shape="rect" src="assets/press-xxl.jpg" placeholder="Drop a press shot" class="washed" style="width: 100%; aspect-ratio: 4 / 5"></image-slot>
+    </figure>
+    <div>
+      <figure class="sb-frame" style="margin-bottom: var(--space-4)">
+        <image-slot id="about-press-2" shape="rect" src="assets/interview-red.jpg" placeholder="Drop a press shot" class="washed" style="width: 100%; aspect-ratio: 5 / 4"></image-slot>
+      </figure>
+      <blockquote style="margin: 0; font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: clamp(20px, 2.6vw, 27px); line-height: 1.14; text-transform: uppercase">
+        &#8220;Skiddle is the colour we carry. Bandana is how we carry it together.&#8221;
+      </blockquote>
+      <p class="text-muted" style="font-size: 13px; margin-top: var(--space-3)">On the meaning of the album title.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ EPK -->
+<section class="sb-shell" data-screen-label="EPK" style="padding-bottom: clamp(40px, 6vw, 72px)">
+  <div class="card" style="padding: clamp(28px, 4vw, 48px)">
+    <span class="sb-eyebrow">Press &amp; booking</span>
+    <h3 style="margin: 0 0 var(--space-3)">Work with Reezy</h3>
+    <p class="text-muted" style="max-width: 54ch">Booking enquiries, features and press requests.</p>
+    <div style="display: flex; flex-wrap: wrap; gap: var(--space-3); margin-top: var(--space-3)">
+      <a class="btn btn-primary" href="https://lareezy.com" target="_blank" rel="noopener">Booking enquiry</a>
+      <a class="btn" href="https://lareezy.com" target="_blank" rel="noopener">Request a feature</a>
+      <button class="btn" type="button" disabled title="Placeholder — attach the real press kit" style="opacity: 0.45; cursor: not-allowed">Press photos (.zip)</button>
+      <button class="btn" type="button" disabled title="Placeholder — attach the real one-sheet" style="opacity: 0.45; cursor: not-allowed">One-sheet (PDF)</button>
+    </div>
+    <p class="text-muted" style="font-size: 12.5px; margin-top: var(--space-4)">The two greyed buttons are placeholders &#8212; the team supplies the real assets.</p>
+  </div>
+</section>
+
+<section class="sb-paisley sb-veil sb-on-crimson" data-screen-label="Follow" style="border-block: 3px solid var(--color-text)">
+  <div class="sb-shell" style="padding-block: clamp(44px, 7vw, 76px)">
+    <span class="sb-eyebrow">Reezy World</span>
+    <h2 style="color: var(--color-ink-invert); max-width: 18ch">Get the drops before anybody.</h2>
+    <p style="max-width: 52ch; color: color-mix(in srgb, var(--color-ink-invert) 86%, transparent)">Shows, merch drops and new music &#8212; straight to you.</p>
+    <div class="sb-socials" style="margin-top: var(--space-6)">
+      <sc-for list="{{ socials }}" as="s" hint-placeholder-count="8">
+        <a class="sb-social" href="{{ s.url }}" target="_blank" rel="noopener" aria-label="{{ s.name }}" title="{{ s.name }}">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="{{ s.d }}"/></svg>
+        </a>
       </sc-for>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section data-screen-label="Photos" style="display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 4fr); gap: 28px; align-items: start; padding: 40px 0 56px">
-    <figure class="washed" style="margin: 0; border-radius: 32px; overflow: hidden">
-      <image-slot id="about-press-1" shape="rect" src="assets/press-xxl.jpg" placeholder="Drop a press shot" style="width: 100%; aspect-ratio: 4 / 5"></image-slot>
-    </figure>
-    <div style="display: flex; flex-direction: column; gap: 28px">
-      <figure class="washed" style="margin: 0; border-radius: 32px; overflow: hidden">
-        <image-slot id="about-press-2" shape="rect" src="assets/interview-red.jpg" placeholder="Drop a press shot" style="width: 100%; aspect-ratio: 5 / 4"></image-slot>
-      </figure>
-      <blockquote style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: clamp(22px, 2.4vw, 28px); line-height: 1.4; max-width: 26ch; margin: 12px 0 0; text-indent: -0.559em">&ldquo;Some of the sharpest rapping and most refined flows we&rsquo;ve heard from him yet.&rdquo;</blockquote>
-      <p style="font-size: 14px; line-height: 20px; margin: -12px 0 0; color: color-mix(in srgb, var(--color-text) 70%, transparent)">— Hip Hop High Society, on Skiddle Bandana</p>
+<footer class="sb-shell" data-screen-label="Footer" style="padding-block: clamp(36px, 5vw, 56px)">
+  <div style="display: flex; flex-wrap: wrap; gap: var(--space-6); align-items: flex-start">
+    <div style="flex: 1; min-width: 220px">
+      <span class="nav-brand" style="display: block; margin-bottom: var(--space-3)">LA REEZY</span>
+      <p class="text-muted" style="font-size: 14px; max-width: 30ch">New Orleans, Louisiana. Leader of da UTH.</p>
     </div>
-  </section>
-
-  <section data-screen-label="EPK" style="padding: 0 0 56px">
-    <div style="background: var(--color-accent-2-100); border-radius: 32px; padding: 56px clamp(24px, 4vw, 64px)">
-      <h3 style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 26px; line-height: 28px; margin: 0">Press &amp; booking</h3>
-      <p style="font-size: 15.5px; line-height: 28px; max-width: 58ch; margin: 16px 0 0; color: color-mix(in srgb, var(--color-text) 78%, transparent)">Everything a promoter, editor or A&amp;R needs — in one place.</p>
-      <div style="display: flex; gap: var(--space-3); flex-wrap: wrap; margin-top: 28px">
-        <a class="btn btn-primary" href="https://forms.gle/deXe1D3ZMXoANnzY9" target="_blank" rel="noopener">Book La Reezy</a>
-        <a class="btn btn-secondary" href="https://forms.gle/tHVQ4p764Kko3ctC7" target="_blank" rel="noopener">Request a feature</a>
-        <a class="btn btn-ghost" href="#" title="Placeholder — attach the real press kit">Press photos (.zip)</a>
-        <a class="btn btn-ghost" href="#" title="Placeholder — attach the real one-sheet">One-sheet (PDF)</a>
+    <div style="flex: 1; min-width: 220px">
+      <span class="card-kicker" style="display: block; margin-bottom: var(--space-3)">Listen on</span>
+      <div class="sb-dsp" style="flex-direction: column; align-items: flex-start; gap: 6px">
+        <a href="https://open.spotify.com/artist/2uVTJrWgoWoJmImS2I0KVE" target="_blank" rel="noopener">Spotify</a>
+        <a href="https://music.apple.com/us/artist/la-reezy/1472684455" target="_blank" rel="noopener">Apple Music</a>
+        <a href="https://audiomack.com/la-reezy" target="_blank" rel="noopener">Audiomack</a>
+        <a href="https://soundcloud.com/2400reezy" target="_blank" rel="noopener">SoundCloud</a>
       </div>
     </div>
-  </section>
+    <div style="flex: 1; min-width: 220px">
+      <span class="card-kicker" style="display: block; margin-bottom: var(--space-3)">Follow</span>
+      <div class="sb-socials">
+        <sc-for list="{{ socials }}" as="s" hint-placeholder-count="8">
+          <a class="sb-social" href="{{ s.url }}" target="_blank" rel="noopener" aria-label="{{ s.name }}" title="{{ s.name }}">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="{{ s.d }}"/></svg>
+          </a>
+        </sc-for>
+      </div>
+    </div>
+  </div>
+  <p class="text-muted" style="font-size: 12px; margin: var(--space-6) 0 0">&#169; 2026 La Reezy. All rights reserved. &#183; Concept redesign.</p>
+</footer>
 
-  <footer data-screen-label="Footer" style="display: flex; flex-wrap: wrap; gap: 12px 24px; align-items: baseline; padding: 28px 0 56px; font-size: 13px; line-height: 28px; color: color-mix(in srgb, var(--color-text) 70%, transparent)">
-    <span style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 15px; color: var(--color-text)">LA REEZY</span>
-    <a href="https://music.apple.com/us/artist/la-reezy/1472684455" target="_blank" rel="noopener">Apple Music</a>
-    <a href="https://open.spotify.com/album/1ua9bT9kFnJeGi9j9nbfIL" target="_blank" rel="noopener">Spotify</a>
-    <a href="https://soundcloud.com/2400reezy" target="_blank" rel="noopener">SoundCloud</a>
-    <a href="https://www.youtube.com/@lareezymusic" target="_blank" rel="noopener">YouTube</a>
-    <a href="https://www.instagram.com/lareezymusic/" target="_blank" rel="noopener">Instagram</a>
-    <a href="https://www.tiktok.com/@mrlareezy" target="_blank" rel="noopener">TikTok</a>
-    <span style="margin-left: auto">© 2026 La Reezy. All rights reserved.</span>
-  </footer>
+<nav class="sb-actionbar" data-screen-label="Mobile actions" aria-label="Quick actions">
+  <button type="button" data-action="play-album">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg>
+    Listen
+  </button>
+  <a href="{{ ticketsUrl }}" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 8a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v2a2 2 0 0 0 0 4v2a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-2a2 2 0 0 0 0-4V8z"/></svg>
+    Tickets
+  </a>
+  <a href="https://www.instagram.com/lareezymusic/" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9zm0 2a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM17.8 6a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4z"/></svg>
+    Follow
+  </a>
+</nav>
 
+<div class="sb-player" id="sb-player" data-open="false" aria-label="Player">
+  <div class="sb-player-inner">
+    <iframe title="Spotify player" src="about:blank" allow="encrypted-media; clipboard-write" loading="lazy"></iframe>
+    <button class="sb-player-close" type="button" data-action="player-close" aria-label="Close player">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M6.4 5 5 6.4 10.6 12 5 17.6 6.4 19 12 13.4 17.6 19 19 17.6 13.4 12 19 6.4 17.6 5 12 10.6z"/></svg>
+    </button>
+  </div>
 </div>
+
 </x-dc>
-<script type="text/x-dc" data-dc-script>
+<script type="text/x-dc" data-dc-script data-props='{"ticketsUrl": {"editor":"text","default":"https://www.ticketmaster.com/la-reezy-tickets/artist/3142407","tsType":"string","section":"Links"}}'>
 class Component extends DCLogic {
   renderVals() {
     return {
+      ticketsUrl: this.props.ticketsUrl ?? window.TICKETS_URL,
+      socials: window.SOCIALS,
       milestones: [
-        { title: 'XXL Freshman Class of 2026', detail: 'Inducted alongside the year\u2019s breakout artists.' },
-        { title: 'Skiddle Bandana — debut album', detail: 'Out July 2026 via UnitedMasters. 13 tracks, 35 minutes.' },
-        { title: 'On tour with Chance the Rapper', detail: 'Supporting the Coloring Book 10 Year Anniversary Tour.' },
-        { title: '\u201cUp Next\u201d Award, The Hip Hop Museum', detail: 'Plus an honor at the 61st Commemoration of Malcolm X.' },
+        { year: '2023', title: 'Reeborn', detail: 'Produced, recorded and engineered himself. The first real statement.' },
+        { year: '2024', title: 'We All Need Help', detail: 'The project that turned the activism and the music into one voice.' },
+        { year: '2025', title: 'Four projects in a year', detail: 'La Reezyana Vol 1., Pardon Me I’m Different with PJ Morton, Free99$ and LAREEZYANA SHAKEDOWN.' },
+        { year: '2025', title: 'Camp Flog Gnaw + Little Simz', detail: 'Played the Carnival and opened for Little Simz on the road.' },
+        { year: '2025', title: 'Hip Hop Museum “Next Up”', detail: 'Awarded in October for the UTH Foundation’s work with New Orleans youth.' },
+        { year: '2026', title: 'XXL Freshman Class', detail: 'Named in June, weeks before the debut album landed on UnitedMasters.' },
       ],
     };
   }

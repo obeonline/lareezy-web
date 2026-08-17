@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600">
+  <title>Pardon Me, I&#8217;m Different (2025), with PJ Morton</title>
+  <rect width="600" height="600" fill="#f7eedd"/>
+
+  <!-- a grid of the same mark, and one that refuses to match -->
+  <g fill="none" stroke="#17100e" stroke-width="5">
+    <g id="row">
+      <circle cx="118" cy="150" r="34"/><circle cx="228" cy="150" r="34"/>
+      <circle cx="338" cy="150" r="34"/><circle cx="448" cy="150" r="34"/>
+    </g>
+    <g>
+      <circle cx="118" cy="260" r="34"/><circle cx="228" cy="260" r="34"/>
+      <circle cx="448" cy="260" r="34"/>
+    </g>
+    <g>
+      <circle cx="118" cy="370" r="34"/><circle cx="228" cy="370" r="34"/>
+      <circle cx="338" cy="370" r="34"/><circle cx="448" cy="370" r="34"/>
+    </g>
+  </g>
+
+  <!-- the different one: filled, gold, larger, off the grid, with paisley curl -->
+  <g transform="translate(338 260)">
+    <circle r="52" fill="#c8102e"/>
+    <circle r="52" fill="none" stroke="#f0a81e" stroke-width="5"/>
+    <g transform="translate(-24 -34) scale(0.36)">
+      <path d="M52 136 C16 118 2 84 16 54 C28 26 58 12 78 26 C96 39 96 68 80 78
+               C68 86 50 82 47 70 C45 62 50 55 58 55 C52 66 62 74 72 68
+               C84 60 84 42 72 34 C58 25 36 34 27 56 C15 84 26 114 52 136 Z"
+            fill="none" stroke="#f0a81e" stroke-width="9"/>
+    </g>
+  </g>
+
+  <g text-anchor="middle" font-family="Georgia, serif">
+    <text x="300" y="474" font-weight="700" font-size="44" letter-spacing="1" fill="#17100e">PARDON ME,</text>
+    <text x="300" y="522" font-weight="700" font-size="44" letter-spacing="1" fill="#c8102e">I&#8217;M DIFFERENT</text>
+    <text x="300" y="558" font-size="14" letter-spacing="3.5" fill="#17100e" fill-opacity="0.72">LA REEZY &#215; PJ MORTON &#183; 2025</text>
+    <text x="300" y="72" font-weight="700" font-size="17" letter-spacing="7" fill="#c8102e">LA REEZY</text>
+  </g>
+</svg>

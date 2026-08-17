@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600">
+  <title>Tour poster print</title>
+  <defs>
+    <pattern id="halft" width="9" height="9" patternUnits="userSpaceOnUse">
+      <circle cx="4.5" cy="4.5" r="2" fill="#85081e" fill-opacity="0.5"/>
+    </pattern>
+    <pattern id="pp" width="74" height="74" patternUnits="userSpaceOnUse">
+      <g transform="scale(0.44)">
+        <path d="M52 136 C16 118 2 84 16 54 C28 26 58 12 78 26 C96 39 96 68 80 78
+                 C68 86 50 82 47 70 C45 62 50 55 58 55 C52 66 62 74 72 68
+                 C84 60 84 42 72 34 C58 25 36 34 27 56 C15 84 26 114 52 136 Z"
+              fill="none" stroke="#f0a81e" stroke-width="6"/>
+      </g>
+      <circle cx="58" cy="18" r="2.4" fill="#f0a81e"/>
+    </pattern>
+    <filter id="ps" x="-25%" y="-25%" width="150%" height="150%">
+      <feDropShadow dx="0" dy="14" stdDeviation="14" flood-color="#17100e" flood-opacity="0.26"/>
+    </filter>
+  </defs>
+
+  <rect width="600" height="600" fill="#fad4d7"/>
+
+  <g filter="url(#ps)" transform="translate(300 300) rotate(-3) translate(-300 -300)">
+    <rect x="128" y="60" width="344" height="480" fill="#c8102e" stroke="#17100e" stroke-width="5"/>
+    <rect x="128" y="60" width="344" height="480" fill="url(#halft)"/>
+    <rect x="144" y="76" width="312" height="448" fill="none" stroke="#f0a81e" stroke-width="2.5"/>
+
+    <!-- paisley band -->
+    <rect x="144" y="104" width="312" height="92" fill="#85081e"/>
+    <rect x="144" y="104" width="312" height="92" fill="url(#pp)"/>
+    <rect x="144" y="104" width="312" height="92" fill="none" stroke="#f0a81e" stroke-width="2"/>
+
+    <!-- typographic stack -->
+    <g text-anchor="middle" font-family="Georgia, serif">
+      <text x="300" y="244" font-weight="700" font-size="17" letter-spacing="6" fill="#f0a81e">NOLA&#8217;S OWN</text>
+      <text x="300" y="312" font-weight="700" font-size="62" letter-spacing="1" fill="#f0a81e">LA REEZY</text>
+      <text x="300" y="348" font-weight="700" font-size="19" letter-spacing="3" fill="#fef6e0">SKIDDLE BANDANA</text>
+
+      <line x1="180" y1="372" x2="420" y2="372" stroke="#f0a81e" stroke-width="2"/>
+
+      <g font-size="12.5" letter-spacing="1.5" fill="#fef6e0" fill-opacity="0.92">
+        <text y="398" x="300">AUG 18 NEW YORK &#183; AUG 20 BOSTON</text>
+        <text y="418" x="300">SEP 03 ATLANTA &#183; SEP 09 NEW ORLEANS</text>
+        <text y="438" x="300">SEP 13 AUSTIN &#183; SEP 20 LOS ANGELES</text>
+      </g>
+
+      <line x1="180" y1="458" x2="420" y2="458" stroke="#f0a81e" stroke-width="2"/>
+      <text x="300" y="484" font-weight="700" font-size="12" letter-spacing="2.6" fill="#f0a81e">18&#8221; &#215; 24&#8221; SCREENPRINT</text>
+      <text x="300" y="506" font-size="11" letter-spacing="2.2" fill="#fef6e0" fill-opacity="0.8">SIGNED &#183; EDITION OF 300</text>
+    </g>
+  </g>
+</svg>
