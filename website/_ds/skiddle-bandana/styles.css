@@ -543,7 +543,13 @@ textarea.input { min-height: 110px; resize: vertical; }
   text-wrap: balance;
 }
 .sb-poster-xl { font-size: clamp(52px, 13vw, 132px); }
-.sb-poster-shadow { text-shadow: 4px 4px 0 var(--color-accent-2), 8px 8px 0 var(--color-text); }
+/* em-based so the offset stays proportional from a 390px phone to a
+   132px desktop headline — fixed px reads as mud at small sizes */
+.sb-poster-shadow {
+  text-shadow:
+    0.035em 0.035em 0 var(--color-accent-2),
+    0.07em 0.07em 0 var(--color-text);
+}
 .sb-poster-outline {
   color: transparent;
   -webkit-text-stroke: 2px var(--color-accent-2);
