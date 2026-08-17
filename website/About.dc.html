@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/organic-588001cc-2b10-4449-b148-1d8890f3c704/styles.css">
+  <script src="_ds/organic-588001cc-2b10-4449-b148-1d8890f3c704/_ds_bundle.js"></script>
+  <script src="image-slot.js"></script>
+  <style>
+    body { margin: 0; text-wrap: pretty; overflow-x: clip; background: var(--color-bg); color: var(--color-text); font-family: var(--font-body); }
+    a { color: var(--color-accent-700); }
+    a:hover { color: var(--color-accent-800); }
+  </style>
+</helmet>
+
+<nav class="nav" style="padding-inline: max(48px, calc((100% - 1200px) / 2 + 48px))" data-screen-label="Nav">
+  <span class="nav-brand">LA REEZY</span>
+  <a href="Home.dc.html">Home</a>
+  <a href="Tour.dc.html">Tour</a>
+  <a href="Music.dc.html">Music</a>
+  <a href="Merch.dc.html">Merch</a>
+  <a href="About.dc.html" style="color: var(--color-accent-700); font-weight: 700">About</a>
+  <a class="btn btn-primary" href="https://chancestuff.com" target="_blank" rel="noopener">Get tickets</a>
+</nav>
+
+<div style="max-width: 1200px; margin: 0 auto; padding: 0 48px">
+
+  <section data-screen-label="About hero" style="position: relative; display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 6fr); gap: 40px 72px; align-items: center; padding: 80px 0 56px">
+    <div style="position: absolute; right: -70px; top: -150px; width: 400px; height: 400px; border-radius: 50%; background: var(--color-accent-2-200); pointer-events: none; z-index: -1"></div>
+    <div>
+      <span style="display: block; font-size: 13px; line-height: 14px; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 600; color: var(--color-accent-700); margin: 0 0 18px">About La Reezy</span>
+      <h1 style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: clamp(44px, 5.6vw, 76px); line-height: 1.06; margin: 0 0 0 -0.028em">From LaReezyana, <span style="color: var(--color-accent)">with love.</span></h1>
+      <p style="font-size: 17px; line-height: 28px; max-width: 52ch; margin: 28px 0 0">La Reezy calls his home LaReezyana — his own map of New Orleans, Louisiana. He raps the way the city sounds: jazz and soul under trap drums, stories about family, grief and loyalty told with genuine positivity and hunger for greatness.</p>
+      <p style="font-size: 15.5px; line-height: 28px; max-width: 52ch; margin: 20px 0 0; color: color-mix(in srgb, var(--color-text) 78%, transparent)">His moniker — Leader of da UTH (Utilize Time Here) — is a message to young people: lead with purpose, self-awareness and intention. In 2026 that message put him in the XXL Freshman Class and on the road with Chance the Rapper.</p>
+    </div>
+    <figure class="washed" style="margin: 0; width: min(440px, 100%); justify-self: end; border-radius: 32px; overflow: hidden; box-shadow: var(--shadow-lg)">
+      <image-slot id="about-hero" shape="rect" src="assets/nola-park.jpg" placeholder="Drop a New Orleans shot" style="width: 100%; aspect-ratio: 1 / 1"></image-slot>
+    </figure>
+  </section>
+
+  <section data-screen-label="Milestones" style="padding: 40px 0 40px">
+    <span style="display: block; font-size: 13px; line-height: 14px; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 600; color: var(--color-accent-700); margin: 0 0 18px">Milestones</span>
+    <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 56px; max-width: 980px">
+      <sc-for list="{{ milestones }}" as="m" hint-placeholder-count="4">
+        <div style="display: flex; gap: 16px; align-items: baseline">
+          <span style="width: 14px; height: 14px; border-radius: 50%; background: var(--color-accent); flex: none; transform: translateY(1px)"></span>
+          <div>
+            <div style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 20px; line-height: 28px">{{ m.title }}</div>
+            <div style="font-size: 14px; line-height: 22px; color: color-mix(in srgb, var(--color-text) 70%, transparent)">{{ m.detail }}</div>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section data-screen-label="Photos" style="display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 4fr); gap: 28px; align-items: start; padding: 40px 0 56px">
+    <figure class="washed" style="margin: 0; border-radius: 32px; overflow: hidden">
+      <image-slot id="about-press-1" shape="rect" src="assets/press-xxl.jpg" placeholder="Drop a press shot" style="width: 100%; aspect-ratio: 4 / 5"></image-slot>
+    </figure>
+    <div style="display: flex; flex-direction: column; gap: 28px">
+      <figure class="washed" style="margin: 0; border-radius: 32px; overflow: hidden">
+        <image-slot id="about-press-2" shape="rect" src="assets/interview-red.jpg" placeholder="Drop a press shot" style="width: 100%; aspect-ratio: 5 / 4"></image-slot>
+      </figure>
+      <blockquote style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: clamp(22px, 2.4vw, 28px); line-height: 1.4; max-width: 26ch; margin: 12px 0 0; text-indent: -0.559em">&ldquo;Some of the sharpest rapping and most refined flows we&rsquo;ve heard from him yet.&rdquo;</blockquote>
+      <p style="font-size: 14px; line-height: 20px; margin: -12px 0 0; color: color-mix(in srgb, var(--color-text) 70%, transparent)">— Hip Hop High Society, on Skiddle Bandana</p>
+    </div>
+  </section>
+
+  <section data-screen-label="EPK" style="padding: 0 0 56px">
+    <div style="background: var(--color-accent-2-100); border-radius: 32px; padding: 56px clamp(24px, 4vw, 64px)">
+      <h3 style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 26px; line-height: 28px; margin: 0">Press &amp; booking</h3>
+      <p style="font-size: 15.5px; line-height: 28px; max-width: 58ch; margin: 16px 0 0; color: color-mix(in srgb, var(--color-text) 78%, transparent)">Everything a promoter, editor or A&amp;R needs — in one place.</p>
+      <div style="display: flex; gap: var(--space-3); flex-wrap: wrap; margin-top: 28px">
+        <a class="btn btn-primary" href="https://forms.gle/deXe1D3ZMXoANnzY9" target="_blank" rel="noopener">Book La Reezy</a>
+        <a class="btn btn-secondary" href="https://forms.gle/tHVQ4p764Kko3ctC7" target="_blank" rel="noopener">Request a feature</a>
+        <a class="btn btn-ghost" href="#" title="Placeholder — attach the real press kit">Press photos (.zip)</a>
+        <a class="btn btn-ghost" href="#" title="Placeholder — attach the real one-sheet">One-sheet (PDF)</a>
+      </div>
+    </div>
+  </section>
+
+  <footer data-screen-label="Footer" style="display: flex; flex-wrap: wrap; gap: 12px 24px; align-items: baseline; padding: 28px 0 56px; font-size: 13px; line-height: 28px; color: color-mix(in srgb, var(--color-text) 70%, transparent)">
+    <span style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 15px; color: var(--color-text)">LA REEZY</span>
+    <a href="https://music.apple.com/us/artist/la-reezy/1472684455" target="_blank" rel="noopener">Apple Music</a>
+    <a href="https://open.spotify.com/album/1ua9bT9kFnJeGi9j9nbfIL" target="_blank" rel="noopener">Spotify</a>
+    <a href="https://soundcloud.com/2400reezy" target="_blank" rel="noopener">SoundCloud</a>
+    <a href="https://www.youtube.com/@lareezymusic" target="_blank" rel="noopener">YouTube</a>
+    <a href="https://www.instagram.com/lareezymusic/" target="_blank" rel="noopener">Instagram</a>
+    <a href="https://www.tiktok.com/@mrlareezy" target="_blank" rel="noopener">TikTok</a>
+    <span style="margin-left: auto">© 2026 La Reezy. All rights reserved.</span>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      milestones: [
+        { title: 'XXL Freshman Class of 2026', detail: 'Inducted alongside the year\u2019s breakout artists.' },
+        { title: 'Skiddle Bandana — debut album', detail: 'Out July 2026 via UnitedMasters. 13 tracks, 35 minutes.' },
+        { title: 'On tour with Chance the Rapper', detail: 'Supporting the Coloring Book 10 Year Anniversary Tour.' },
+        { title: '\u201cUp Next\u201d Award, The Hip Hop Museum', detail: 'Plus an honor at the 61st Commemoration of Malcolm X.' },
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>

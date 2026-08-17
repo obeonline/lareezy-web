@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/organic-588001cc-2b10-4449-b148-1d8890f3c704/styles.css">
+  <script src="_ds/organic-588001cc-2b10-4449-b148-1d8890f3c704/_ds_bundle.js"></script>
+  <script src="image-slot.js"></script>
+  <style>
+    body { margin: 0; text-wrap: pretty; overflow-x: clip; background: var(--color-bg); color: var(--color-text); font-family: var(--font-body); }
+    a { color: var(--color-accent-700); }
+    a:hover { color: var(--color-accent-800); }
+  </style>
+</helmet>
+
+<nav class="nav" style="padding-inline: max(48px, calc((100% - 1200px) / 2 + 48px))" data-screen-label="Nav">
+  <span class="nav-brand">LA REEZY</span>
+  <a href="Home.dc.html" style="color: var(--color-accent-700); font-weight: 700">Home</a>
+  <a href="Tour.dc.html">Tour</a>
+  <a href="Music.dc.html">Music</a>
+  <a href="Merch.dc.html">Merch</a>
+  <a href="About.dc.html">About</a>
+  <a class="btn btn-primary" href="{{ ticketsUrl }}" target="_blank" rel="noopener">Get tickets</a>
+</nav>
+
+<section id="hero" data-screen-label="Hero" style="position: relative; min-height: 640px; height: 82vh; overflow: hidden; border-radius: 0 0 48px 48px">
+  <div class="washed" style="position: absolute; inset: 0">
+    <image-slot id="hero-photo" shape="rect" radius="0" src="assets/hero-chains.jpg" placeholder="Drop a full-bleed hero photo" style="position: absolute; inset: 0; width: 100%; height: 100%"></image-slot>
+  </div>
+  <div style="position: absolute; inset: 0; background: linear-gradient(to top, var(--color-bg) 4%, color-mix(in srgb, var(--color-bg) 62%, transparent) 30%, transparent 60%); pointer-events: none"></div>
+  <div style="position: absolute; left: 0; right: 0; bottom: 0; padding: 0 max(48px, calc((100% - 1200px) / 2 + 48px)) 44px; pointer-events: none">
+    <span style="display: block; font-size: 13px; line-height: 14px; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 600; color: var(--color-accent-700); margin: 0 0 16px">NOLA&rsquo;s own · Debut album out now</span>
+    <h1 style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: clamp(52px, 7.4vw, 104px); line-height: 1.02; letter-spacing: 0; margin: 0 0 0 -0.028em; max-width: 12ch">Skiddle <span style="color: var(--color-accent)">Bandana.</span></h1>
+    <div style="display: flex; gap: var(--space-3); flex-wrap: wrap; align-items: center; margin-top: 28px; pointer-events: auto">
+      <a class="btn btn-primary" href="https://music.apple.com/us/album/skiddle-bandana/6775341049" target="_blank" rel="noopener">Listen now</a>
+      <a class="btn btn-ghost" href="Tour.dc.html">Get tour tickets</a>
+      <span style="font-size: 13px; letter-spacing: 0.04em; color: color-mix(in srgb, var(--color-text) 70%, transparent)">Streaming everywhere —
+        <a href="https://music.apple.com/us/album/skiddle-bandana/6775341049" target="_blank" rel="noopener" style="font-weight: 600">Apple Music</a> ·
+        <a href="https://open.spotify.com/album/1ua9bT9kFnJeGi9j9nbfIL" target="_blank" rel="noopener" style="font-weight: 600">Spotify</a> ·
+        <a href="https://soundcloud.com/2400reezy" target="_blank" rel="noopener" style="font-weight: 600">SoundCloud</a></span>
+    </div>
+  </div>
+</section>
+
+<div style="max-width: 1200px; margin: 0 auto; padding: 0 48px">
+
+  <section data-screen-label="Stats" style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 28px; padding: 56px 0 70px">
+    <div style="perspective: 1100px; height: 220px">
+      <div style="position: relative; width: 100%; height: 100%; transform-style: preserve-3d; transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)" style-hover="transform: rotateY(180deg)">
+        <div style="position: absolute; inset: 0; backface-visibility: hidden; border-radius: 24px; background: var(--color-accent-100); display: grid; place-content: center; text-align: center; padding: 24px; box-sizing: border-box">
+          <p style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 46px; line-height: 1; margin: 0; color: var(--color-accent-700)">13</p>
+          <p style="font-size: 13px; line-height: 18px; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 600; margin: 12px 0 0; text-wrap: balance; color: color-mix(in srgb, var(--color-text) 70%, transparent)">Tracks, front to back</p>
+        </div>
+        <div style="position: absolute; inset: 0; backface-visibility: hidden; transform: rotateY(180deg); border-radius: 24px; background: var(--color-accent-700); display: grid; place-content: center; text-align: center; padding: 24px; box-sizing: border-box">
+          <p style="font-size: 14.5px; line-height: 22px; margin: 0; color: var(--color-accent-100)">Curly Head Boy to We Live — featuring &ldquo;Melanate It,&rdquo; &ldquo;How Did You Love Me&rdquo; and &ldquo;Family Bizzy.&rdquo;</p>
+        </div>
+      </div>
+    </div>
+    <div style="perspective: 1100px; height: 220px">
+      <div style="position: relative; width: 100%; height: 100%; transform-style: preserve-3d; transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)" style-hover="transform: rotateY(180deg)">
+        <div style="position: absolute; inset: 0; backface-visibility: hidden; border-radius: 24px; background: var(--color-accent-200); display: grid; place-content: center; text-align: center; padding: 24px; box-sizing: border-box">
+          <p style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 46px; line-height: 1; margin: 0; color: var(--color-accent-700)">35</p>
+          <p style="font-size: 13px; line-height: 18px; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 600; margin: 12px 0 0; text-wrap: balance; color: color-mix(in srgb, var(--color-text) 70%, transparent)">Minutes, no filler</p>
+        </div>
+        <div style="position: absolute; inset: 0; backface-visibility: hidden; transform: rotateY(180deg); border-radius: 24px; background: var(--color-accent-700); display: grid; place-content: center; text-align: center; padding: 24px; box-sizing: border-box">
+          <p style="font-size: 14.5px; line-height: 22px; margin: 0; color: var(--color-accent-100)">Jazz, soul and trap moving quick — a debut that never lets up from start to finish.</p>
+        </div>
+      </div>
+    </div>
+    <div style="perspective: 1100px; height: 220px">
+      <div style="position: relative; width: 100%; height: 100%; transform-style: preserve-3d; transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)" style-hover="transform: rotateY(180deg)">
+        <div style="position: absolute; inset: 0; backface-visibility: hidden; border-radius: 24px; background: var(--color-accent-2-300); display: grid; place-content: center; text-align: center; padding: 24px; box-sizing: border-box">
+          <p style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 46px; line-height: 1; margin: 0; color: var(--color-accent-2-800)">&rsquo;26</p>
+          <p style="font-size: 13px; line-height: 18px; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 600; margin: 12px 0 0; text-wrap: balance; color: color-mix(in srgb, var(--color-text) 78%, transparent)">XXL Freshman Class</p>
+        </div>
+        <div style="position: absolute; inset: 0; backface-visibility: hidden; transform: rotateY(180deg); border-radius: 24px; background: var(--color-accent-2-700); display: grid; place-content: center; text-align: center; padding: 24px; box-sizing: border-box">
+          <p style="font-size: 14.5px; line-height: 22px; margin: 0; color: var(--color-accent-2-100)">Inducted into the 2026 XXL Freshman Class off one of the year&rsquo;s standout freestyles.</p>
+        </div>
+      </div>
+    </div>
+    <div style="perspective: 1100px; height: 220px">
+      <div style="position: relative; width: 100%; height: 100%; transform-style: preserve-3d; transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)" style-hover="transform: rotateY(180deg)">
+        <div style="position: absolute; inset: 0; backface-visibility: hidden; border-radius: 24px; background: var(--color-accent-2-100); display: grid; place-content: center; text-align: center; padding: 24px; box-sizing: border-box">
+          <p style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 46px; line-height: 1; margin: 0; color: var(--color-accent-2-700)">504</p>
+          <p style="font-size: 13px; line-height: 18px; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 600; margin: 12px 0 0; text-wrap: balance; color: color-mix(in srgb, var(--color-text) 70%, transparent)">New Orleans, born &amp; raised</p>
+        </div>
+        <div style="position: absolute; inset: 0; backface-visibility: hidden; transform: rotateY(180deg); border-radius: 24px; background: var(--color-accent-2-700); display: grid; place-content: center; text-align: center; padding: 24px; box-sizing: border-box">
+          <p style="font-size: 14.5px; line-height: 22px; margin: 0; color: var(--color-accent-2-100)">Home is LaReezyana — his own map of New Orleans, Louisiana, in every bar.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="tour" data-screen-label="Tour preview" style="padding: 70px 0 56px">
+    <span style="display: block; font-size: 13px; line-height: 14px; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 600; color: var(--color-accent-700); margin: 0 0 18px">On the road with Chance the Rapper</span>
+    <h2 style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 36px; line-height: 42px; margin: 0 0 0 -0.028em">Catch Reezy live</h2>
+    <p style="font-size: 15.5px; line-height: 28px; max-width: 56ch; margin: 20px 0 36px; color: color-mix(in srgb, var(--color-text) 78%, transparent)">Supporting the Coloring Book 10 Year Anniversary Tour across North America, August 11 – October 11.</p>
+    <div style="display: flex; flex-direction: column; gap: 6px; max-width: 860px">
+      <sc-for list="{{ dates }}" as="d" hint-placeholder-count="4">
+        <div style="display: flex; align-items: center; gap: 24px; padding: 12px 20px; border-radius: 24px" style-hover="background: var(--color-accent-2-100)">
+          <div style="width: 64px; height: 64px; border-radius: 50%; background: var(--color-accent-100); display: grid; place-content: center; text-align: center; flex: none">
+            <span style="font-size: 11px; line-height: 12px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; color: var(--color-accent-700)">{{ d.m }}</span>
+            <span style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 22px; line-height: 24px; color: var(--color-accent-700)">{{ d.d }}</span>
+          </div>
+          <div style="flex: 1; min-width: 0">
+            <div style="font-size: 17px; line-height: 24px; font-weight: 600">{{ d.city }}</div>
+            <div style="font-size: 14px; line-height: 20px; color: color-mix(in srgb, var(--color-text) 70%, transparent)">{{ d.venue }}</div>
+          </div>
+          <sc-if value="{{ d.tag }}" hint-placeholder-val="{{ false }}"><span class="tag tag-accent-2">{{ d.tag }}</span></sc-if>
+          <a class="btn btn-ghost" href="{{ ticketsUrl }}" target="_blank" rel="noopener">Tickets</a>
+        </div>
+      </sc-for>
+    </div>
+    <div style="margin-top: 28px"><a class="btn btn-secondary" href="Tour.dc.html">See all tour dates</a></div>
+  </section>
+
+  <section id="videos" data-screen-label="Videos" style="padding: 56px 0">
+    <span style="display: block; font-size: 13px; line-height: 14px; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 600; color: var(--color-accent-700); margin: 0 0 18px">Videos</span>
+    <h2 style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 36px; line-height: 42px; margin: 0 0 36px -0.028em">Watch the latest</h2>
+    <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px">
+      <a href="https://www.youtube.com/watch?v=DBPLGWDDDHY" target="_blank" rel="noopener" style="display: block; position: relative; border-radius: 24px; overflow: hidden; text-decoration: none">
+        <img class="washed" src="https://i.ytimg.com/vi/DBPLGWDDDHY/hqdefault.jpg" alt="La Reezy music video" style="display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover">
+        <span style="position: absolute; inset: 0; display: grid; place-items: center"><span style="width: 56px; height: 56px; border-radius: 50%; background: var(--color-accent); display: grid; place-items: center; box-shadow: var(--shadow-md)"><svg width="20" height="20" viewBox="0 0 24 24" fill="var(--color-bg)"><path d="M8 5.5v13l11-6.5z"></path></svg></span></span>
+      </a>
+      <a href="https://www.youtube.com/watch?v=8uwTXaip7SY" target="_blank" rel="noopener" style="display: block; position: relative; border-radius: 24px; overflow: hidden; text-decoration: none">
+        <img class="washed" src="https://i.ytimg.com/vi/8uwTXaip7SY/hqdefault.jpg" alt="La Reezy music video" style="display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover">
+        <span style="position: absolute; inset: 0; display: grid; place-items: center"><span style="width: 56px; height: 56px; border-radius: 50%; background: var(--color-accent); display: grid; place-items: center; box-shadow: var(--shadow-md)"><svg width="20" height="20" viewBox="0 0 24 24" fill="var(--color-bg)"><path d="M8 5.5v13l11-6.5z"></path></svg></span></span>
+      </a>
+      <a href="https://www.youtube.com/watch?v=6C9EoYSwLYw" target="_blank" rel="noopener" style="display: block; position: relative; border-radius: 24px; overflow: hidden; text-decoration: none">
+        <img class="washed" src="https://i.ytimg.com/vi/6C9EoYSwLYw/hqdefault.jpg" alt="La Reezy music video" style="display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover">
+        <span style="position: absolute; inset: 0; display: grid; place-items: center"><span style="width: 56px; height: 56px; border-radius: 50%; background: var(--color-accent); display: grid; place-items: center; box-shadow: var(--shadow-md)"><svg width="20" height="20" viewBox="0 0 24 24" fill="var(--color-bg)"><path d="M8 5.5v13l11-6.5z"></path></svg></span></span>
+      </a>
+    </div>
+    <p style="font-size: 14px; line-height: 28px; margin: 20px 0 0; color: color-mix(in srgb, var(--color-text) 70%, transparent)">More on <a href="Music.dc.html" style="font-weight: 600">the music page</a> and <a href="https://www.youtube.com/@lareezymusic" target="_blank" rel="noopener" style="font-weight: 600">YouTube</a></p>
+  </section>
+
+  <section id="merch" data-screen-label="Merch teaser" style="padding: 56px 0">
+    <span style="display: block; font-size: 13px; line-height: 14px; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 600; color: var(--color-accent-700); margin: 0 0 18px">Merch</span>
+    <h2 style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 36px; line-height: 42px; margin: 0 0 36px -0.028em">Rep the bandana</h2>
+    <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px">
+      <a href="Merch.dc.html" style="display: flex; flex-direction: column; gap: 12px; text-decoration: none; color: var(--color-text)">
+        <div class="washed" style="border-radius: 24px; overflow: hidden; background: var(--color-accent-100)"><image-slot id="merch-teaser-1" shape="rect" placeholder="Drop the bandana product shot" style="width: 100%; aspect-ratio: 1 / 1"></image-slot></div>
+        <div style="display: flex; align-items: baseline; gap: 12px"><span style="font-weight: 600; font-size: 16px">The Skiddle Bandana</span><span style="margin-left: auto; font-size: 14px; color: color-mix(in srgb, var(--color-text) 70%, transparent)">$30</span></div>
+      </a>
+      <a href="Merch.dc.html" style="display: flex; flex-direction: column; gap: 12px; text-decoration: none; color: var(--color-text)">
+        <div class="washed" style="border-radius: 24px; overflow: hidden; background: var(--color-accent-2-100)"><image-slot id="merch-teaser-2" shape="rect" placeholder="Drop the tee product shot" style="width: 100%; aspect-ratio: 1 / 1"></image-slot></div>
+        <div style="display: flex; align-items: baseline; gap: 12px"><span style="font-weight: 600; font-size: 16px">LaReezyana Tee</span><span style="margin-left: auto; font-size: 14px; color: color-mix(in srgb, var(--color-text) 70%, transparent)">$35</span></div>
+      </a>
+      <a href="Merch.dc.html" style="display: flex; flex-direction: column; gap: 12px; text-decoration: none; color: var(--color-text)">
+        <div class="washed" style="border-radius: 24px; overflow: hidden; background: var(--color-accent-200)"><image-slot id="merch-teaser-3" shape="rect" placeholder="Drop the cap product shot" style="width: 100%; aspect-ratio: 1 / 1"></image-slot></div>
+        <div style="display: flex; align-items: baseline; gap: 12px"><span style="font-weight: 600; font-size: 16px">Leader of da UTH Cap</span><span style="margin-left: auto; font-size: 14px; color: color-mix(in srgb, var(--color-text) 70%, transparent)">$32</span></div>
+      </a>
+    </div>
+    <div style="margin-top: 28px"><a class="btn btn-secondary" href="Merch.dc.html">Shop the drop</a></div>
+  </section>
+
+  <section id="join" data-screen-label="Join" style="padding: 28px 0 56px">
+    <div style="background: var(--color-accent-2-100); border-radius: 32px; padding: 56px clamp(24px, 4vw, 64px)">
+      <h3 style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 26px; line-height: 28px; margin: 0">Join the Reezy World</h3>
+      <p style="font-size: 15.5px; line-height: 28px; max-width: 58ch; margin: 16px 0 0; color: color-mix(in srgb, var(--color-text) 78%, transparent)">Tour presales, new music first, and word from Reezy himself. No spam, ever.</p>
+      <div style="display: flex; gap: var(--space-3); align-items: stretch; max-width: 480px; margin-top: 28px">
+        <input class="input" type="email" placeholder="you@example.com" aria-label="Email address" style="flex: 1; min-height: 36px">
+        <button type="button" class="btn btn-primary" style="min-height: 36px">Sign up</button>
+      </div>
+      <p style="font-size: 14px; line-height: 28px; margin: 28px 0 0; color: color-mix(in srgb, var(--color-text) 78%, transparent)">Working with Reezy: <a href="https://forms.gle/deXe1D3ZMXoANnzY9" target="_blank" rel="noopener" style="font-weight: 600">Book La Reezy</a> · <a href="https://forms.gle/tHVQ4p764Kko3ctC7" target="_blank" rel="noopener" style="font-weight: 600">Request a feature</a></p>
+    </div>
+  </section>
+
+  <footer data-screen-label="Footer" style="display: flex; flex-wrap: wrap; gap: 12px 24px; align-items: baseline; padding: 28px 0 56px; font-size: 13px; line-height: 28px; color: color-mix(in srgb, var(--color-text) 70%, transparent)">
+    <span style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 15px; color: var(--color-text)">LA REEZY</span>
+    <a href="https://music.apple.com/us/artist/la-reezy/1472684455" target="_blank" rel="noopener">Apple Music</a>
+    <a href="https://open.spotify.com/album/1ua9bT9kFnJeGi9j9nbfIL" target="_blank" rel="noopener">Spotify</a>
+    <a href="https://soundcloud.com/2400reezy" target="_blank" rel="noopener">SoundCloud</a>
+    <a href="https://www.youtube.com/@lareezymusic" target="_blank" rel="noopener">YouTube</a>
+    <a href="https://www.instagram.com/lareezymusic/" target="_blank" rel="noopener">Instagram</a>
+    <a href="https://www.tiktok.com/@mrlareezy" target="_blank" rel="noopener">TikTok</a>
+    <span style="margin-left: auto">© 2026 La Reezy. All rights reserved.</span>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;ticketsUrl&quot;: {&quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;https://chancestuff.com&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;section&quot;: &quot;Links&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    const all = [
+      { m: 'Aug', d: '18', city: 'New York, NY', venue: 'SummerStage in Central Park', tag: '' },
+      { m: 'Aug', d: '21', city: 'Huntington, NY', venue: 'The Paramount', tag: '' },
+      { m: 'Aug', d: '22', city: 'Philadelphia, PA', venue: 'The Fillmore', tag: '' },
+      { m: 'Aug', d: '23', city: 'Asbury Park, NJ', venue: 'Stone Pony Summer Stage', tag: '' },
+    ];
+    return {
+      dates: all,
+      ticketsUrl: this.props.ticketsUrl ?? 'https://chancestuff.com',
+    };
+  }
+}
+</script>
+</body>
+</html>

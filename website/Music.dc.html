@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/organic-588001cc-2b10-4449-b148-1d8890f3c704/styles.css">
+  <script src="_ds/organic-588001cc-2b10-4449-b148-1d8890f3c704/_ds_bundle.js"></script>
+  <script src="image-slot.js"></script>
+  <style>
+    body { margin: 0; text-wrap: pretty; overflow-x: clip; background: var(--color-bg); color: var(--color-text); font-family: var(--font-body); }
+    a { color: var(--color-accent-700); }
+    a:hover { color: var(--color-accent-800); }
+  </style>
+</helmet>
+
+<nav class="nav" style="padding-inline: max(48px, calc((100% - 1200px) / 2 + 48px))" data-screen-label="Nav">
+  <span class="nav-brand">LA REEZY</span>
+  <a href="Home.dc.html">Home</a>
+  <a href="Tour.dc.html">Tour</a>
+  <a href="Music.dc.html" style="color: var(--color-accent-700); font-weight: 700">Music</a>
+  <a href="Merch.dc.html">Merch</a>
+  <a href="About.dc.html">About</a>
+  <a class="btn btn-primary" href="https://chancestuff.com" target="_blank" rel="noopener">Get tickets</a>
+</nav>
+
+<div style="max-width: 1200px; margin: 0 auto; padding: 0 48px">
+
+  <section data-screen-label="Featured album" style="position: relative; display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 40px 72px; align-items: center; padding: 80px 0 70px">
+    <div style="position: absolute; left: -80px; bottom: -140px; width: 380px; height: 380px; border-radius: 50%; background: var(--color-accent-2-200); pointer-events: none; z-index: -1"></div>
+    <figure class="washed" style="margin: 0; width: min(440px, 100%); border-radius: 32px; overflow: hidden; box-shadow: var(--shadow-lg)">
+      <image-slot id="music-cover" shape="rect" src="assets/skiddle-bandana-cover.jpg" placeholder="Drop the Skiddle Bandana cover art" style="width: 100%; aspect-ratio: 1 / 1"></image-slot>
+    </figure>
+    <div>
+      <span style="display: block; font-size: 13px; line-height: 14px; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 600; color: var(--color-accent-700); margin: 0 0 18px">Debut album · 2026 · UnitedMasters</span>
+      <h1 style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: clamp(44px, 5.6vw, 76px); line-height: 1.06; margin: 0 0 0 -0.028em">Skiddle <span style="color: var(--color-accent)">Bandana.</span></h1>
+      <p style="font-size: 17px; line-height: 28px; max-width: 52ch; margin: 28px 0 0">Skiddle is the color, the culture, the energy. Bandana is the unity — carrying the stories together. Thirteen tracks on family, grief, loyalty and Southern pride, featuring &ldquo;Melanate It,&rdquo; &ldquo;How Did You Love Me&rdquo; and the VICE-approved &ldquo;Family Bizzy.&rdquo;</p>
+      <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 24px">
+        <span class="tag tag-accent">13 tracks</span>
+        <span class="tag tag-accent">35 minutes</span>
+        <span class="tag tag-accent-2">Jazz · soul · trap · NOLA</span>
+      </div>
+      <div style="display: flex; gap: var(--space-3); flex-wrap: wrap; margin-top: 28px">
+        <a class="btn btn-primary" href="https://music.apple.com/us/album/skiddle-bandana/6775341049" target="_blank" rel="noopener">Apple Music</a>
+        <a class="btn btn-secondary" href="https://open.spotify.com/album/1ua9bT9kFnJeGi9j9nbfIL" target="_blank" rel="noopener">Spotify</a>
+        <a class="btn btn-ghost" href="https://soundcloud.com/2400reezy" target="_blank" rel="noopener">SoundCloud</a>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="Catalog" style="padding: 56px 0">
+    <span style="display: block; font-size: 13px; line-height: 14px; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 600; color: var(--color-accent-700); margin: 0 0 18px">The catalog</span>
+    <h2 style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 36px; line-height: 42px; margin: 0 0 36px -0.028em">Straight out of LaReezyana</h2>
+    <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 28px">
+      <sc-for list="{{ releases }}" as="r" hint-placeholder-count="4">
+        <a href="{{ r.url }}" target="_blank" rel="noopener" style="display: flex; flex-direction: column; gap: 12px; text-decoration: none; color: var(--color-text)">
+          <div class="washed" style="border-radius: 24px; overflow: hidden; background: var(--color-accent-2-100)">
+            <image-slot id="{{ r.slot }}" shape="rect" src="{{ r.img }}" placeholder="Drop the cover art" style="width: 100%; aspect-ratio: 1 / 1"></image-slot>
+          </div>
+          <div>
+            <div style="font-weight: 600; font-size: 16px; line-height: 22px">{{ r.title }}</div>
+            <div style="font-size: 13px; line-height: 20px; color: color-mix(in srgb, var(--color-text) 70%, transparent)">{{ r.meta }}</div>
+          </div>
+        </a>
+      </sc-for>
+    </div>
+    <p style="font-size: 14px; line-height: 28px; margin: 24px 0 0; color: color-mix(in srgb, var(--color-text) 70%, transparent)">Full discography on <a href="https://music.apple.com/us/artist/la-reezy/1472684455" target="_blank" rel="noopener" style="font-weight: 600">Apple Music</a></p>
+  </section>
+
+  <section data-screen-label="Videos" style="padding: 56px 0">
+    <span style="display: block; font-size: 13px; line-height: 14px; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 600; color: var(--color-accent-700); margin: 0 0 18px">Videos</span>
+    <h2 style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 36px; line-height: 42px; margin: 0 0 36px -0.028em">Watch the latest</h2>
+    <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px">
+      <a href="https://www.youtube.com/watch?v=DBPLGWDDDHY" target="_blank" rel="noopener" style="display: block; position: relative; border-radius: 24px; overflow: hidden; text-decoration: none">
+        <img class="washed" src="https://i.ytimg.com/vi/DBPLGWDDDHY/hqdefault.jpg" alt="La Reezy music video" style="display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover">
+        <span style="position: absolute; inset: 0; display: grid; place-items: center"><span style="width: 56px; height: 56px; border-radius: 50%; background: var(--color-accent); display: grid; place-items: center; box-shadow: var(--shadow-md)"><svg width="20" height="20" viewBox="0 0 24 24" fill="var(--color-bg)"><path d="M8 5.5v13l11-6.5z"></path></svg></span></span>
+      </a>
+      <a href="https://www.youtube.com/watch?v=8uwTXaip7SY" target="_blank" rel="noopener" style="display: block; position: relative; border-radius: 24px; overflow: hidden; text-decoration: none">
+        <img class="washed" src="https://i.ytimg.com/vi/8uwTXaip7SY/hqdefault.jpg" alt="La Reezy music video" style="display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover">
+        <span style="position: absolute; inset: 0; display: grid; place-items: center"><span style="width: 56px; height: 56px; border-radius: 50%; background: var(--color-accent); display: grid; place-items: center; box-shadow: var(--shadow-md)"><svg width="20" height="20" viewBox="0 0 24 24" fill="var(--color-bg)"><path d="M8 5.5v13l11-6.5z"></path></svg></span></span>
+      </a>
+      <a href="https://www.youtube.com/watch?v=6C9EoYSwLYw" target="_blank" rel="noopener" style="display: block; position: relative; border-radius: 24px; overflow: hidden; text-decoration: none">
+        <img class="washed" src="https://i.ytimg.com/vi/6C9EoYSwLYw/hqdefault.jpg" alt="La Reezy music video" style="display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover">
+        <span style="position: absolute; inset: 0; display: grid; place-items: center"><span style="width: 56px; height: 56px; border-radius: 50%; background: var(--color-accent); display: grid; place-items: center; box-shadow: var(--shadow-md)"><svg width="20" height="20" viewBox="0 0 24 24" fill="var(--color-bg)"><path d="M8 5.5v13l11-6.5z"></path></svg></span></span>
+      </a>
+    </div>
+    <p style="font-size: 14px; line-height: 28px; margin: 20px 0 0; color: color-mix(in srgb, var(--color-text) 70%, transparent)">More on <a href="https://www.youtube.com/@lareezymusic" target="_blank" rel="noopener" style="font-weight: 600">YouTube</a></p>
+  </section>
+
+  <footer data-screen-label="Footer" style="display: flex; flex-wrap: wrap; gap: 12px 24px; align-items: baseline; padding: 28px 0 56px; font-size: 13px; line-height: 28px; color: color-mix(in srgb, var(--color-text) 70%, transparent)">
+    <span style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 15px; color: var(--color-text)">LA REEZY</span>
+    <a href="https://music.apple.com/us/artist/la-reezy/1472684455" target="_blank" rel="noopener">Apple Music</a>
+    <a href="https://open.spotify.com/album/1ua9bT9kFnJeGi9j9nbfIL" target="_blank" rel="noopener">Spotify</a>
+    <a href="https://soundcloud.com/2400reezy" target="_blank" rel="noopener">SoundCloud</a>
+    <a href="https://www.youtube.com/@lareezymusic" target="_blank" rel="noopener">YouTube</a>
+    <a href="https://www.instagram.com/lareezymusic/" target="_blank" rel="noopener">Instagram</a>
+    <a href="https://www.tiktok.com/@mrlareezy" target="_blank" rel="noopener">TikTok</a>
+    <span style="margin-left: auto">© 2026 La Reezy. All rights reserved.</span>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    const artist = 'https://music.apple.com/us/artist/la-reezy/1472684455';
+    return {
+      releases: [
+        { slot: 'rel-pardon', title: 'Pardon Me, I\u2019m Different', meta: 'Album · 2025', img: '', url: artist },
+        { slot: 'rel-lareezyana', title: 'Welcome To La Reezyana Vol 1.', meta: 'Mixtape · 2025', img: '', url: 'https://www.even.biz/p/welcome-to-la-reezyana-vol-1' },
+        { slot: 'rel-shakedown', title: 'LAREEZYANA SHAKEDOWN', meta: 'EP · 2025', img: '', url: artist },
+        { slot: 'rel-reeborn', title: 'Reeborn', meta: 'Mixtape', img: 'assets/reeborn-cover.jpg', url: artist },
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>
