@@ -1,6 +1,9 @@
 # Export archives (duplicates of website/)
 *.zip
 
+# Vercel CLI link metadata
+.vercel/
+
 # OS / editor cruft
 Thumbs.db
 ehthumbs.db
