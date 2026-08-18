@@ -781,6 +781,19 @@ footer .nav-brand { font-size: 28px; }
 }
 .sb-flip-detail { font-size: 14px; line-height: 1.5; }
 
+/* On a phone these cards go nearly full-bleed, so the desktop type — sized
+   for a ~210px column — leaves the card mostly empty. Scale it to the width
+   it actually gets. */
+@media (max-width: 639px) {
+  .sb-flip { min-height: 244px; }
+  .sb-flip-face { padding: var(--space-4); }
+  .sb-flip-n { font-size: clamp(96px, 29vw, 124px); }
+  .sb-flip-label { font-size: clamp(22px, 6.6vw, 30px); letter-spacing: 0.06em; }
+  .sb-flip-hint { font-size: 12px; letter-spacing: 0.12em; }
+  .sb-flip-kicker { font-size: 12px; }
+  .sb-flip-detail { font-size: clamp(16px, 4.4vw, 19px); line-height: 1.42; }
+}
+
 /* Reduced motion: cross-fade instead of a 3D tumble. */
 @media (prefers-reduced-motion: reduce) {
   .sb-flip-inner, .sb-flip[data-flipped="true"] .sb-flip-inner { transform: none; }
