@@ -1,0 +1,1395 @@
+/* Skiddle Technicolor — alternate design system for lareezy.com
+   Where Bandana Red & Gold honours the album artwork, this honours the
+   album's own sentence: "Skiddle represents the colourful energy and
+   cultural presence of Black people." Colour is the subject. Crimson and
+   gold stay as anchors on a violet ground; violet, turquoise, pink and
+   green rotate one-per-page so no screen carries more than three. */
+
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Alfa+Slab+One&family=Bagel+Fat+One&family=Space+Grotesk:wght@400;500;700&display=swap');
+
+:root {
+  /* ---- Role colors -------------------------------------------------- */
+  /* Violet-leaning dark ground — a sibling of the oxblood, not a stranger:
+     crimson and gold still anchor everything laid on top of it. */
+  --color-bg: #1c1030;          /* deep violet-black */
+  --color-surface: #2a1a45;     /* raised card */
+  --color-text: #f9efdd;        /* warm cream */
+  --color-accent: #c8102e;      /* bandana crimson */
+  --color-accent-2: #f0a81e;    /* marigold gold */
+  --color-divider: color-mix(in srgb, #f9efdd 22%, transparent);
+
+  /* Fixed values that must NOT flip with the theme: panels and bars that
+     stay dark, and dark type that sits on gold or on a light chip. */
+  --color-ink: #14070a;
+  --color-on-light: #17100e;
+
+  /* On this ground crimson type fails contrast, so accent type is gold —
+     which is also exactly how the album artwork uses the two colours. */
+  --color-accent-text: var(--color-accent-2);
+  --color-link: var(--color-accent-2-400);
+  --color-link-hover: var(--color-accent-2-200);
+
+  /* ---- Neutral ramp (warm greys, tuned to the bone ground) ---------- */
+  --color-neutral-100: #fbf5e9;
+  --color-neutral-200: #f0e7d5;
+  --color-neutral-300: #ded2bb;
+  --color-neutral-400: #c0b297;
+  --color-neutral-500: #9c8e76;
+  --color-neutral-600: #7a6e59;
+  --color-neutral-700: #5a5041;
+  --color-neutral-800: #3b342a;
+  --color-neutral-900: #1f1a14;
+
+  /* ---- Accent ramp — crimson --------------------------------------- */
+  --color-accent-100: #fdecec;
+  --color-accent-200: #fad4d7;
+  --color-accent-300: #f2a9b1;
+  --color-accent-400: #e56a7a;
+  --color-accent-500: #c8102e;
+  --color-accent-600: #a80b26;
+  --color-accent-700: #85081e;
+  --color-accent-800: #5f0615;
+  --color-accent-900: #3b040d;
+
+  /* ---- Accent-2 ramp — marigold gold ------------------------------- */
+  --color-accent-2-100: #fef6e0;
+  --color-accent-2-200: #fde9b8;
+  --color-accent-2-300: #fbd77e;
+  --color-accent-2-400: #f5c246;
+  --color-accent-2-500: #f0a81e;
+  --color-accent-2-600: #ce8b0c;
+  --color-accent-2-700: #a26c08;
+  --color-accent-2-800: #714b06;
+  --color-accent-2-900: #452d03;
+
+  /* ---- Accent-3 ramp — second-line green (new, spot accent) -------- */
+  --color-accent-3: #2e7d4f;
+  --color-accent-3-100: #e8f6ed;
+  --color-accent-3-200: #c7e9d5;
+  --color-accent-3-300: #94d3b0;
+  --color-accent-3-400: #55b685;
+  --color-accent-3-500: #2e7d4f;
+  --color-accent-3-600: #256640;
+  --color-accent-3-700: #1b4d31;
+  --color-accent-3-800: #133624;
+  --color-accent-3-900: #0c2117;
+
+  /* ---- Accent-4 ramp — violet ------------------------------------- */
+  --color-accent-4: #5b3fd9;
+  --color-accent-4-100: #efebfd;
+  --color-accent-4-200: #d8cffa;
+  --color-accent-4-300: #b6a6f4;
+  --color-accent-4-400: #8a72e8;
+  --color-accent-4-500: #5b3fd9;
+  --color-accent-4-600: #4a31b8;
+  --color-accent-4-700: #3a2591;
+  --color-accent-4-800: #291a68;
+  --color-accent-4-900: #1a1042;
+
+  /* ---- Accent-5 ramp — turquoise ---------------------------------- */
+  --color-accent-5: #18b5c4;
+  --color-accent-5-100: #e6fafc;
+  --color-accent-5-200: #c0f1f6;
+  --color-accent-5-300: #8ae3ec;
+  --color-accent-5-400: #45cddb;
+  --color-accent-5-500: #18b5c4;
+  --color-accent-5-600: #1293a0;
+  --color-accent-5-700: #0d727c;
+  --color-accent-5-800: #095158;
+  --color-accent-5-900: #063338;
+
+  /* ---- Accent-6 ramp — hot pink ----------------------------------- */
+  --color-accent-6: #f2568f;
+  --color-accent-6-100: #feecf3;
+  --color-accent-6-200: #fcd2e1;
+  --color-accent-6-300: #f9a9c3;
+  --color-accent-6-400: #f57ba6;
+  --color-accent-6-500: #f2568f;
+  --color-accent-6-600: #d02f6b;
+  --color-accent-6-700: #a41f51;
+  --color-accent-6-800: #741439;
+  --color-accent-6-900: #490c23;
+
+  /* The page's third colour. Each page overrides this once on .sb-page;
+     components read it rather than hard-coding, so the whole rotation is
+     a single declaration per page. Defaults to violet. */
+  --color-spot: var(--color-accent-4);
+  --color-spot-100: var(--color-accent-4-100);
+  --color-spot-300: var(--color-accent-4-300);
+  --color-spot-400: var(--color-accent-4-400);
+  --color-spot-700: var(--color-accent-4-700);
+  --color-spot-800: var(--color-accent-4-800);
+  --color-spot-900: var(--color-accent-4-900);
+
+  /* ---- Type on crimson blocks (new) -------------------------------- */
+  --color-ink-invert: #fbefd8;
+
+  /* ---- Fonts -------------------------------------------------------- */
+  --font-heading: "Anton", "Arial Narrow", system-ui, sans-serif;
+  --font-heading-weight: 400;
+  --font-display: "Bagel Fat One", "Anton", system-ui, sans-serif;
+  --font-ticker: "Alfa Slab One", Georgia, serif;
+  --font-body: "Space Grotesk", system-ui, -apple-system, sans-serif;
+
+  /* ---- Spacing ------------------------------------------------------ */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 14px;
+  --space-4: 20px;
+  --space-6: 32px;
+  --space-8: 48px;
+
+  /* ---- Radii — generous and rounded -------------------------------- */
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 26px;
+  --radius-pill: 999px;
+
+  /* ---- Shadows — soft, layered elevation --------------------------- */
+  --shadow-sm: 0 2px 6px -1px rgb(0 0 0 / 0.4);
+  --shadow-md: 0 10px 24px -8px rgb(0 0 0 / 0.55), 0 2px 6px -2px rgb(0 0 0 / 0.4);
+  --shadow-lg: 0 30px 60px -18px rgb(0 0 0 / 0.65), 0 8px 20px -8px rgb(0 0 0 / 0.45);
+
+  /* ---- System extensions --------------------------------------------
+     These two names are used inline across the pages. They used to carry a
+     hard 2px outline and a solid offset block; they now carry a hairline
+     and a soft elevation, so the whole site restyles from here. */
+  --border-hard: 1px solid color-mix(in srgb, var(--color-text) 20%, transparent);
+  --shadow-hard: 0 22px 48px -16px rgb(0 0 0 / 0.62), 0 4px 14px -6px rgb(0 0 0 / 0.45);
+  --shadow-hard-sm: 0 8px 20px -8px rgb(0 0 0 / 0.5);
+  --shadow-glow: 0 14px 34px -12px color-mix(in srgb, var(--color-accent) 70%, transparent);
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --paisley-url: url("../../assets/art/paisley-tile.svg");
+  --ticker-speed: 34s;
+  /* Fixed height of the mobile action bar, excluding the safe-area inset.
+     The player and the body's bottom padding are both derived from it, so
+     they can never drift out of step with the bar's real height. */
+  --actionbar-h: 60px;
+  --gutter: clamp(20px, 5vw, 48px);
+  --measure: 1200px;
+}
+
+/* ====================================================================
+   Base
+   ==================================================================== */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: var(--font-heading-weight);
+  line-height: 1.02;
+  letter-spacing: 0.002em;
+  text-transform: uppercase;
+  margin: 0 0 var(--space-3);
+}
+
+h1 { font-size: clamp(40px, 8vw, 72px); }
+h2 { font-size: clamp(30px, 5.4vw, 50px); }
+h3 { font-size: clamp(23px, 3.4vw, 32px); }
+h4 { font-size: 21px; }
+h5 { font-size: 17px; }
+h6 { font-size: 14px; letter-spacing: 0.06em; }
+
+p { margin: 0 0 var(--space-3); }
+a { color: var(--color-link); text-underline-offset: 3px; }
+a:hover { color: var(--color-link-hover); }
+img { max-width: 100%; display: block; }
+figure { margin: 0; }
+figcaption { font-size: 13px; color: color-mix(in srgb, var(--color-text) 60%, transparent); }
+
+:focus-visible {
+  outline: 3px solid var(--color-accent-2);
+  outline-offset: 2px;
+}
+::selection { background: var(--color-accent-2-300); color: var(--color-text); }
+
+/* ====================================================================
+   Image treatments
+   ==================================================================== */
+
+/* Was a desaturating wash in the old system. Now it adds punch —
+   17 photographs across the site pick this up at once. */
+.washed { filter: contrast(1.09) saturate(1.2) brightness(0.99); }
+
+/* Deliberate crimson duotone. Wrapper form (blend overlay) is richer;
+   the -img form is a filter chain for bare <img> elements. */
+.sb-duo { position: relative; isolation: isolate; background: var(--color-accent-900); }
+.sb-duo > * { filter: grayscale(1) contrast(1.15); mix-blend-mode: luminosity; }
+.sb-duo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(150deg, var(--color-accent-600), var(--color-accent-900));
+  mix-blend-mode: color;
+  pointer-events: none;
+  z-index: 1;
+}
+.sb-duo-img { filter: grayscale(1) sepia(1) saturate(4.2) hue-rotate(-24deg) contrast(1.08); }
+
+/* Paper grain, applied to full-bleed color blocks */
+.sb-grain { position: relative; isolation: isolate; }
+.sb-grain::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("../../assets/art/grain.svg");
+  opacity: 0.5;
+  pointer-events: none;
+  mix-blend-mode: overlay;
+}
+
+/* ====================================================================
+   Buttons — chunky, hard-shadowed, with a real press
+   ==================================================================== */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: 48px;
+  padding: 12px 26px;
+  font-family: var(--font-heading);
+  font-weight: var(--font-heading-weight);
+  font-size: 15px;
+  letter-spacing: 0.045em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--color-text);
+  background: color-mix(in srgb, var(--color-text) 6%, transparent);
+  border: 1px solid color-mix(in srgb, var(--color-text) 26%, transparent);
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden; /* clips the .btn-primary shimmer sweep */
+  transition: transform 0.24s var(--ease-out), box-shadow 0.24s var(--ease-out),
+              background-color 0.2s ease, border-color 0.2s ease;
+}
+
+/* Gold shimmer sweep across the primary action on hover */
+.btn-primary::after {
+  content: "";
+  position: absolute;
+  top: 0; bottom: 0;
+  left: -60%;
+  width: 40%;
+  background: linear-gradient(105deg, transparent,
+    color-mix(in srgb, var(--color-accent-2) 55%, transparent), transparent);
+  transform: skewX(-18deg);
+  pointer-events: none;
+}
+.btn-primary:hover::after { animation: sb-shimmer 0.6s ease-out; }
+@keyframes sb-shimmer {
+  from { left: -60%; }
+  to   { left: 130%; }
+}
+.btn:hover {
+  background: color-mix(in srgb, var(--color-text) 13%, transparent);
+  border-color: color-mix(in srgb, var(--color-text) 42%, transparent);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+.btn:active { transform: translateY(0); box-shadow: var(--shadow-sm); }
+
+.btn-primary {
+  background: var(--color-accent);
+  color: var(--color-ink-invert);
+  border-color: transparent;
+  box-shadow: var(--shadow-glow);
+}
+.btn-primary:hover {
+  background: var(--color-accent-600);
+  color: var(--color-ink-invert);
+  border-color: transparent;
+  transform: translateY(-2px);
+  box-shadow: 0 20px 44px -14px color-mix(in srgb, var(--color-accent) 85%, transparent);
+}
+
+.btn-secondary {
+  background: var(--color-accent-2);
+  color: var(--color-on-light);
+  border-color: transparent;
+  box-shadow: 0 14px 34px -12px color-mix(in srgb, var(--color-accent-2) 65%, transparent);
+}
+.btn-secondary:hover {
+  background: var(--color-accent-2-400);
+  color: var(--color-on-light);
+  border-color: transparent;
+  transform: translateY(-2px);
+  box-shadow: 0 20px 44px -14px color-mix(in srgb, var(--color-accent-2) 80%, transparent);
+}
+
+.btn-ghost {
+  background: transparent;
+  border-color: transparent;
+  color: var(--color-link);
+  padding-inline: 10px;
+}
+.btn-ghost:hover {
+  background: color-mix(in srgb, var(--color-accent-2) 16%, transparent);
+  color: var(--color-link-hover);
+}
+
+.btn-icon { width: 48px; height: 48px; padding: 0; }
+.btn-block { width: 100%; }
+
+/* On crimson grounds, buttons flip to cream/gold */
+.sb-on-crimson .btn { color: var(--color-ink-invert); border-color: var(--color-ink-invert); }
+.sb-on-crimson .btn-primary {
+  background: var(--color-accent-2);
+  color: var(--color-accent-900);
+  border-color: var(--color-text);
+}
+.sb-on-crimson .btn-primary:hover { background: var(--color-accent-2-300); color: var(--color-accent-900); }
+.sb-on-crimson .btn-ghost { border-color: transparent; color: var(--color-accent-2-200); }
+.sb-on-crimson .btn-ghost:hover { background: color-mix(in srgb, var(--color-ink-invert) 15%, transparent); }
+
+/* ====================================================================
+   Form controls
+   ==================================================================== */
+
+.field > label {
+  display: block;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: var(--space-1);
+  color: color-mix(in srgb, var(--color-text) 72%, transparent);
+}
+
+.input {
+  width: 100%;
+  min-height: 48px;
+  padding: 12px 20px;
+  font-family: var(--font-body);
+  font-size: 16px; /* 16px minimum — stops iOS zooming on focus */
+  color: var(--color-text);
+  background: color-mix(in srgb, var(--color-text) 8%, transparent);
+  border: 1px solid color-mix(in srgb, var(--color-text) 24%, transparent);
+  border-radius: var(--radius-pill);
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+.input::placeholder { color: color-mix(in srgb, var(--color-text) 45%, transparent); }
+.input:hover { border-color: var(--color-accent-700); }
+.input:focus-visible { border-color: var(--color-accent); outline-offset: 1px; }
+textarea.input { min-height: 110px; resize: vertical; }
+
+.radio { position: relative; display: inline-flex; align-items: center; gap: var(--space-2); cursor: pointer; }
+.radio input { position: absolute; opacity: 0; width: 0; height: 0; }
+.radio .dot {
+  width: 20px; height: 20px;
+  border: var(--border-hard);
+  border-radius: 50%;
+  flex: none;
+}
+.radio input:checked + .dot { background: var(--color-accent); box-shadow: inset 0 0 0 4px var(--color-bg); }
+.radio input:focus-visible + .dot { outline: 3px solid var(--color-accent-2); outline-offset: 2px; }
+
+.seg { display: inline-flex; border: var(--border-hard); border-radius: var(--radius-md); overflow: hidden; }
+.seg-opt { position: relative; padding: 12px 18px; cursor: pointer; font-size: 14px; font-weight: 500; }
+.seg-opt input { position: absolute; opacity: 0; }
+.seg-opt:has(input:checked) { background: var(--color-accent); color: var(--color-ink-invert); }
+
+/* ====================================================================
+   Cards
+   ==================================================================== */
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-4);
+  background: var(--color-surface);
+  border: var(--border-hard);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-hard);
+  transition: transform 0.32s var(--ease-out), box-shadow 0.32s var(--ease-out),
+              border-color 0.32s var(--ease-out);
+}
+a.card:hover, .card:hover {
+  transform: translateY(-5px);
+  border-color: color-mix(in srgb, var(--color-accent-2) 45%, transparent);
+  box-shadow: var(--shadow-lg);
+}
+.card-kicker {
+  font-family: var(--font-heading);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-accent-text);
+}
+.card-title { font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 20px; text-transform: uppercase; }
+.card-body { font-size: 14px; line-height: 1.55; flex: 1; opacity: 0.82; }
+.card-meta { font-size: 12px; letter-spacing: 0.04em; color: color-mix(in srgb, var(--color-text) 55%, transparent); }
+
+.elev-sm { box-shadow: var(--shadow-sm); }
+.elev-md { box-shadow: var(--shadow-md); }
+.elev-lg { box-shadow: var(--shadow-lg); }
+
+/* ====================================================================
+   Tags
+   ==================================================================== */
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 13px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border-radius: var(--radius-pill);
+  border: 1px solid transparent;
+}
+.tag-accent { background: var(--color-accent-100); color: var(--color-accent-800); border-color: var(--color-accent-300); }
+.tag-accent-2 { background: var(--color-accent-2-100); color: var(--color-accent-2-900); border-color: var(--color-accent-2-300); }
+.tag-neutral { background: var(--color-neutral-100); color: var(--color-neutral-800); border-color: var(--color-neutral-300); }
+.tag-outline { border-color: var(--color-accent); color: var(--color-accent-700); }
+
+/* ====================================================================
+   Nav
+   ==================================================================== */
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: var(--space-3) var(--gutter);
+  padding-top: max(var(--space-3), env(safe-area-inset-top));
+  background: color-mix(in srgb, var(--color-bg) 82%, transparent);
+  backdrop-filter: blur(16px) saturate(1.3);
+  -webkit-backdrop-filter: blur(16px) saturate(1.3);
+  border-bottom: 1px solid color-mix(in srgb, var(--color-text) 12%, transparent);
+  position: sticky;
+  top: 0;
+  z-index: 60;
+}
+/* Wordmark lockup — crest + type, with the same layered offset the poster
+   headlines use, so the logo reads as part of the same system. */
+.nav-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 48px;
+  font-family: var(--font-heading);
+  font-weight: var(--font-heading-weight);
+  font-size: clamp(26px, 3.4vw, 34px);
+  line-height: 1;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  margin-right: auto;
+  white-space: nowrap;
+  transition: opacity 0.2s ease;
+}
+/* Cream-to-gold gradient fill rather than a stacked offset — the same
+   warmth, none of the retro block shadow. */
+.nav-brand > span {
+  background: linear-gradient(96deg, var(--color-text) 18%, var(--color-accent-2) 92%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.nav-brand:hover { opacity: 0.86; color: inherit; }
+
+.sb-mark {
+  width: 40px;
+  height: 40px;
+  flex: none;
+  filter: drop-shadow(0 6px 14px rgb(0 0 0 / 0.5));
+  transition: transform 0.45s var(--ease-out);
+}
+.nav-brand:hover .sb-mark { transform: rotate(-6deg) scale(1.07); }
+
+/* The footer repeats the wordmark without the crest — dial it back a step. */
+footer .nav-brand { font-size: 28px; }
+/* Scoped to the nav links themselves — a bare `.nav a` rule outranks
+   `.nav-brand` on specificity and would pin the wordmark to 14px. */
+/* Each link is its own pill, so the cluster reads as a control group
+   rather than as loose words floating in the bar. */
+.nav .sb-navlink {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  padding: 8px 17px;
+  border-radius: var(--radius-pill);
+  color: color-mix(in srgb, var(--color-text) 82%, transparent);
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.055em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+.nav .sb-navlink:hover {
+  background: color-mix(in srgb, var(--color-text) 12%, transparent);
+  color: var(--color-text);
+}
+.nav .sb-navlink[aria-current="page"] {
+  background: var(--color-accent);
+  color: var(--color-ink-invert);
+  box-shadow: 0 10px 24px -12px color-mix(in srgb, var(--color-accent) 90%, transparent);
+}
+
+/* ====================================================================
+   Table
+   ==================================================================== */
+
+.table { width: 100%; border-collapse: collapse; font-size: 15px; }
+.table th {
+  padding: var(--space-2);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-align: left;
+  border-bottom: var(--border-hard);
+}
+.table td { padding: var(--space-2); border-bottom: 1px solid var(--color-divider); }
+.table tbody tr:hover { background: color-mix(in srgb, var(--color-accent) 6%, transparent); }
+
+/* ====================================================================
+   Dialog
+   ==================================================================== */
+
+.dialog-backdrop {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: var(--space-4);
+  background: color-mix(in srgb, var(--color-accent-900) 62%, transparent);
+  z-index: 200;
+}
+.dialog {
+  width: min(460px, 100%);
+  padding: var(--space-6);
+  background: var(--color-surface);
+  border: var(--border-hard);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-hard);
+}
+.dialog-title { font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 26px; text-transform: uppercase; }
+.dialog-body { font-size: 15px; }
+.dialog-actions { display: flex; justify-content: flex-end; gap: var(--space-2); margin-top: var(--space-4); }
+
+/* ====================================================================
+   Utilities
+   ==================================================================== */
+
+.text-muted { color: color-mix(in srgb, var(--color-text) 58%, transparent); }
+.hr { height: 1px; background: var(--color-divider); border: 0; margin: var(--space-6) 0; }
+
+/* ====================================================================
+   SIGNATURE COMPONENTS
+   All prefixed sb- so they cannot collide with the runtime's global
+   atomic classes injected by support.js.
+   ==================================================================== */
+
+/* ---- Page shell ---------------------------------------------------- */
+.sb-shell { max-width: var(--measure); margin: 0 auto; padding-inline: var(--gutter); }
+.sb-bleed { position: relative; width: 100%; }
+
+/* ---- Ticker band — the album's bracketing bars ---------------------- */
+.sb-ticker {
+  --ticker-bg: var(--color-accent);
+  --ticker-fg: var(--color-accent-2-300);
+  overflow: hidden;
+  background: var(--ticker-bg);
+  border-block: 1px solid color-mix(in srgb, var(--color-accent-2) 42%, transparent);
+  padding: 11px 0;
+  user-select: none;
+}
+.sb-ticker-gold { --ticker-bg: var(--color-accent-2); --ticker-fg: var(--color-accent-900); border-block-color: var(--color-text); }
+.sb-ticker-ink  { --ticker-bg: var(--color-ink); --ticker-fg: var(--color-accent-2-300); border-block-color: var(--color-accent); }
+
+.sb-ticker-track {
+  display: flex;
+  width: max-content;
+  animation: sb-ticker-scroll var(--ticker-speed) linear infinite;
+}
+.sb-ticker:hover .sb-ticker-track { animation-play-state: paused; }
+.sb-ticker-track > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 22px;
+  padding-right: 22px;
+  font-family: var(--font-ticker);
+  font-size: 15px;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--ticker-fg);
+}
+@keyframes sb-ticker-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* ---- Paisley ground ------------------------------------------------- */
+.sb-paisley {
+  background-color: var(--color-accent);
+  background-image: var(--paisley-url);
+  background-size: 260px 260px;
+  background-repeat: repeat;
+}
+.sb-paisley-soft { background-size: 200px 200px; opacity: 0.16; }
+.sb-paisley-layer {
+  position: absolute;
+  inset: 0;
+  background-image: var(--paisley-url);
+  background-size: 220px 220px;
+  opacity: 0.14;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+}
+
+/* Ambient drift — the paisley print moves on its own. Sits on elements that
+   already carry .sb-paisley.sb-veil: the static background is replaced by an
+   oversized ::before layer that translates exactly one tile period (260px)
+   and loops seamlessly. ~3px/s: ambience, not animation. */
+.sb-drift { background-image: none; overflow: hidden; }
+.sb-drift::before {
+  content: "";
+  position: absolute;
+  inset: -260px;
+  background-image: var(--paisley-url);
+  background-size: 260px 260px;
+  background-repeat: repeat;
+  will-change: transform;
+  animation: sb-drift-pan 80s linear infinite;
+  pointer-events: none;
+}
+@keyframes sb-drift-pan {
+  from { transform: translate(0, 0); }
+  to   { transform: translate(260px, 260px); }
+}
+
+/* Hero portrait float — the whole framed unit drifts as one object: gold
+   border, shadow and photo move together, rather than the picture sliding
+   around inside a fixed frame. Lives on the figure; the pointer parallax
+   lives on a wrapper above it so the two transforms never fight. */
+.sb-hero-float {
+  animation: sb-hero-float 14s ease-in-out infinite alternate;
+  will-change: transform;
+}
+@keyframes sb-hero-float {
+  from { transform: translate3d(0, 7px, 0) rotate(-0.45deg); }
+  to   { transform: translate3d(0, -7px, 0) rotate(0.45deg); }
+}
+/* Touch devices get no pointer parallax, so the float is carrying the hero
+   on its own — give it a wider, slightly quicker arc. */
+@media (hover: none) {
+  .sb-hero-float {
+    animation-name: sb-hero-float-touch;
+    animation-duration: 11s;
+  }
+}
+@keyframes sb-hero-float-touch {
+  from { transform: translate3d(-5px, 11px, 0) rotate(-0.8deg); }
+  to   { transform: translate3d(5px, -11px, 0) rotate(0.8deg); }
+}
+
+/* Pointer parallax depth planes. site.js writes --sb-mx / --sb-my (-1..1)
+   onto <html> — outside the DC runtime's re-render zone — and these glide
+   toward the cursor. Without the vars (touch, reduced motion) they resolve
+   to 0 and the transforms are identity. */
+.sb-depth-photo {
+  transform: translate(calc(var(--sb-mx, 0) * 10px), calc(var(--sb-my, 0) * 8px));
+  transition: transform 0.6s var(--ease-out);
+}
+.sb-depth-text {
+  transform: translate(calc(var(--sb-mx, 0) * -4px), calc(var(--sb-my, 0) * -4px));
+  transition: transform 0.6s var(--ease-out);
+}
+
+/* Darkening veil over a paisley ground, so type stays readable on top of it */
+.sb-veil { position: relative; isolation: isolate; }
+.sb-veil::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: linear-gradient(155deg,
+    color-mix(in srgb, var(--color-accent) 80%, transparent),
+    color-mix(in srgb, var(--color-accent-900) 92%, transparent));
+}
+.sb-veil > * { position: relative; z-index: 1; }
+
+/* ---- Gold frame — the ornate double rule from the cover ------------- */
+.sb-frame {
+  position: relative;
+  padding: 9px;
+  background: color-mix(in srgb, var(--color-accent-900) 70%, transparent);
+  border: 1px solid color-mix(in srgb, var(--color-accent-2) 55%, transparent);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+}
+.sb-frame::after {
+  content: "";
+  position: absolute;
+  inset: 9px;
+  border: 1px solid color-mix(in srgb, var(--color-accent-2) 40%, transparent);
+  border-radius: calc(var(--radius-lg) - 9px);
+  pointer-events: none;
+  z-index: 2;
+}
+.sb-frame > * {
+  position: relative;
+  border-radius: calc(var(--radius-lg) - 9px);
+  overflow: hidden;
+}
+
+/* ---- Poster headline ------------------------------------------------ */
+.sb-poster {
+  font-family: var(--font-display);
+  font-weight: 400;
+  text-transform: uppercase;
+  line-height: 0.88;
+  letter-spacing: -0.005em;
+  margin: 0;
+  text-wrap: balance;
+}
+.sb-poster-xl { font-size: clamp(52px, 13vw, 132px); }
+/* em-based so the offset stays proportional from a 390px phone to a
+   132px desktop headline — fixed px reads as mud at small sizes */
+/* Soft depth so the headline lifts off the paisley without the retro
+   offset block. */
+.sb-poster-shadow {
+  text-shadow: 0 4px 30px rgb(0 0 0 / 0.5), 0 1px 3px rgb(0 0 0 / 0.35);
+}
+.sb-poster-outline {
+  color: transparent;
+  -webkit-text-stroke: 2px var(--color-accent-2);
+  paint-order: stroke fill;
+}
+
+.sb-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-ticker);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-accent-text);
+  margin: 0 0 var(--space-3);
+}
+.sb-on-crimson .sb-eyebrow { color: var(--color-accent-2-300); }
+
+/* ---- Scroll reveals — sections arrive instead of existing ------------
+   Pure CSS, no markup and no JS, so the DC runtime's re-renders can't
+   break it. The base state is the final state: browsers without
+   scroll-driven animations simply show everything. */
+@supports (animation-timeline: view()) {
+  .card, .sb-flip, .sb-sectionhead {
+    /* backwards, not both: once the range completes the animation stops
+       applying, so the base transform returns and the .card:hover lift
+       (a non-!important rule the animation would otherwise override)
+       keeps working. */
+    animation: sb-rise linear backwards;
+    animation-timeline: view();
+    animation-range: entry 0% entry 45%;
+  }
+}
+@keyframes sb-rise {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ---- Micro-motion details ------------------------------------------- */
+
+/* Pulsing live dot for the hero eyebrow */
+.sb-livedot {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--color-accent-2);
+  animation: sb-pulse 2s ease-in-out infinite;
+  flex: none;
+}
+@keyframes sb-pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(0.72); opacity: 0.55; }
+}
+
+/* Gentle float for a featured cover */
+.sb-float { animation: sb-float 7s ease-in-out infinite alternate; }
+@keyframes sb-float {
+  from { transform: translateY(0); }
+  to   { transform: translateY(-8px); }
+}
+
+/* ---- Stamp / seal --------------------------------------------------- */
+.sb-stamp {
+  display: inline-grid;
+  place-content: center;
+  text-align: center;
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background: var(--color-accent-2);
+  color: var(--color-accent-900);
+  border: 1px solid color-mix(in srgb, var(--color-accent-900) 45%, transparent);
+  box-shadow: 0 18px 40px -14px color-mix(in srgb, var(--color-accent-2) 80%, transparent);
+  font-family: var(--font-ticker);
+  font-size: 12px;
+  line-height: 1.15;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transform: rotate(-11deg);
+  flex: none;
+  animation: sb-rock 6s ease-in-out infinite;
+}
+/* base rotation baked in — an animation replaces the whole transform */
+@keyframes sb-rock {
+  0%, 100% { transform: rotate(-11deg); }
+  50% { transform: rotate(-7deg); }
+}
+
+/* ---- Flip cards ------------------------------------------------------
+   Hover flips on a pointer device; tap/click/Enter flips on touch and
+   keyboard, so the back is never content you can only reach with a mouse. */
+.sb-flip {
+  position: relative;
+  display: block;
+  width: 100%;
+  min-height: 208px;
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  perspective: 1100px;
+  -webkit-tap-highlight-color: transparent;
+}
+.sb-flip-inner {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+@media (hover: hover) {
+  .sb-flip:hover .sb-flip-inner { transform: rotateY(180deg); }
+}
+.sb-flip[data-flipped="true"] .sb-flip-inner { transform: rotateY(180deg); }
+.sb-flip:focus-visible { outline: none; }
+.sb-flip:focus-visible .sb-flip-face {
+  outline: 3px solid var(--color-accent-2);
+  outline-offset: 3px;
+}
+
+.sb-flip-face {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: var(--space-4);
+  border: var(--border-hard);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-hard);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  overflow: hidden;
+  transition: border-color 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out);
+}
+.sb-flip-front { background: var(--color-surface); }
+.sb-flip:hover .sb-flip-face { box-shadow: var(--shadow-lg); }
+.sb-flip-back {
+  background: var(--color-accent);
+  background-image: var(--paisley-url);
+  background-size: 190px 190px;
+  color: var(--color-ink-invert);
+  transform: rotateY(180deg);
+  justify-content: center;
+  border-color: color-mix(in srgb, var(--color-accent-2) 45%, transparent);
+}
+.sb-flip-back::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: color-mix(in srgb, var(--color-accent-900) 82%, transparent);
+}
+.sb-flip-back > * { position: relative; }
+
+.sb-flip-n {
+  font-family: var(--font-display);
+  font-size: clamp(52px, 6.2vw, 70px);
+  line-height: 0.88;
+  color: var(--color-accent-text);
+}
+.sb-flip-label {
+  font-family: var(--font-heading);
+  font-size: 15px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.sb-flip-hint {
+  margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-ticker);
+  font-size: 10.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--color-text) 72%, transparent);
+}
+.sb-flip:hover .sb-flip-hint { color: var(--color-accent-text); }
+.sb-flip-kicker {
+  font-family: var(--font-ticker);
+  font-size: 10.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-accent-2-300);
+  margin-bottom: 2px;
+}
+.sb-flip-detail { font-size: 14px; line-height: 1.5; }
+
+/* On a phone these cards go nearly full-bleed, so the desktop type — sized
+   for a ~210px column — leaves the card mostly empty. Scale it to the width
+   it actually gets. */
+@media (max-width: 639px) {
+  .sb-flip { min-height: 244px; }
+  .sb-flip-face { padding: var(--space-4); }
+  .sb-flip-n { font-size: clamp(96px, 29vw, 124px); }
+  .sb-flip-label { font-size: clamp(22px, 6.6vw, 30px); letter-spacing: 0.06em; }
+  .sb-flip-hint { font-size: 12px; letter-spacing: 0.12em; }
+  .sb-flip-kicker { font-size: 12px; }
+  .sb-flip-detail { font-size: clamp(16px, 4.4vw, 19px); line-height: 1.42; }
+}
+
+/* Reduced motion: cross-fade instead of a 3D tumble. */
+@media (prefers-reduced-motion: reduce) {
+  .sb-flip-inner, .sb-flip[data-flipped="true"] .sb-flip-inner { transform: none; }
+  .sb-flip-face { backface-visibility: visible; -webkit-backface-visibility: visible; }
+  .sb-flip-back { transform: none; opacity: 0; z-index: 1; }
+  .sb-flip[data-flipped="true"] .sb-flip-back { opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce) and (hover: hover) {
+  .sb-flip:hover .sb-flip-back { opacity: 1; }
+}
+
+/* Video play badge — scales up with a gold glow when its card is hovered */
+.sb-playbadge { transition: transform 0.28s var(--ease-out), box-shadow 0.28s var(--ease-out); }
+.card:hover .sb-playbadge {
+  transform: scale(1.12);
+  box-shadow: 0 10px 30px -6px color-mix(in srgb, var(--color-accent-2) 70%, transparent);
+}
+
+/* ---- Section heads -------------------------------------------------- */
+.sb-sectionhead { display: flex; align-items: flex-end; gap: var(--space-4); flex-wrap: wrap; margin-bottom: var(--space-6); }
+.sb-sectionhead h2 { margin: 0; flex: 1 1 auto; }
+
+/* ---- Socials -------------------------------------------------------- */
+.sb-socials { display: flex; flex-wrap: wrap; gap: 10px; }
+.sb-social {
+  display: inline-grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border: 1px solid color-mix(in srgb, var(--color-text) 22%, transparent);
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--color-text) 8%, transparent);
+  color: var(--color-text);
+  transition: transform 0.28s var(--ease-out), box-shadow 0.28s var(--ease-out),
+              background-color 0.2s ease, border-color 0.2s ease;
+}
+.sb-social:hover {
+  background: var(--color-accent-2);
+  color: var(--color-on-light);
+  border-color: transparent;
+  transform: translateY(-3px);
+  box-shadow: 0 14px 28px -10px color-mix(in srgb, var(--color-accent-2) 75%, transparent);
+}
+.sb-social:active { transform: translateY(-1px); }
+.sb-social svg { width: 21px; height: 21px; fill: currentColor; }
+.sb-on-crimson .sb-social {
+  background: color-mix(in srgb, var(--color-ink) 45%, transparent);
+  color: var(--color-accent-2-200);
+  border-color: color-mix(in srgb, var(--color-accent-2) 45%, transparent);
+}
+.sb-on-crimson .sb-social:hover { background: var(--color-accent-2); color: var(--color-accent-900); border-color: transparent; }
+
+/* DSP text links */
+.sb-dsp { display: flex; flex-wrap: wrap; gap: 8px 18px; align-items: center; }
+.sb-dsp a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  font-family: var(--font-heading);
+  font-size: 14px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: inherit;
+  border-bottom: 2px solid transparent;
+}
+.sb-dsp a:hover { border-bottom-color: var(--color-accent-2); color: inherit; }
+
+/* Inline links inside a running sentence — kept above the 24px minimum
+   without breaking the line rhythm. */
+.sb-inline-link {
+  display: inline-block;
+  padding-block: 5px;
+  font-weight: 700;
+}
+
+/* ---- Tracklist / player --------------------------------------------- */
+.sb-tracklist { display: flex; flex-direction: column; border-top: var(--border-hard); }
+.sb-track {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  width: 100%;
+  padding: 13px var(--space-3);
+  min-height: 56px;
+  background: transparent;
+  border: 0;
+  border-bottom: 1.5px solid var(--color-divider);
+  font-family: inherit;
+  font-size: 16px;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.14s ease, padding-left 0.14s ease;
+}
+.sb-track:hover { background: color-mix(in srgb, var(--color-accent) 28%, transparent); padding-left: calc(var(--space-3) + 6px); }
+.sb-track-n {
+  font-family: var(--font-heading);
+  font-size: 25px;
+  min-width: 42px;
+  color: color-mix(in srgb, var(--color-accent-2) 62%, transparent);
+  font-variant-numeric: tabular-nums;
+}
+.sb-track:hover .sb-track-n { color: var(--color-accent-2); }
+.sb-track-name { flex: 1; font-weight: 500; }
+.sb-track-play { flex: none; width: 26px; height: 26px; opacity: 0.35; transition: opacity 0.14s ease; }
+.sb-track:hover .sb-track-play { opacity: 1; }
+.sb-track[aria-current="true"] { background: color-mix(in srgb, var(--color-accent) 40%, transparent); }
+.sb-track[aria-current="true"] .sb-track-n { color: var(--color-accent-2); }
+.sb-track[aria-current="true"] .sb-track-play { opacity: 1; color: var(--color-accent-2); }
+
+.sb-player {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 90;
+  background: color-mix(in srgb, var(--color-accent-900) 92%, transparent);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-top: 1px solid color-mix(in srgb, var(--color-accent-2) 38%, transparent);
+  padding: 10px var(--gutter);
+  padding-bottom: max(10px, env(safe-area-inset-bottom));
+  transform: translateY(110%);
+  visibility: hidden;
+  pointer-events: none;
+  transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1), visibility 0s linear 0.28s;
+}
+.sb-player[data-open="true"] {
+  transform: translateY(0);
+  visibility: visible;
+  pointer-events: auto;
+  transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1), visibility 0s;
+}
+.sb-player-inner { display: flex; align-items: center; gap: var(--space-3); max-width: var(--measure); margin: 0 auto; }
+.sb-player iframe { flex: 1; border: 0; border-radius: var(--radius-md); height: 80px; min-width: 0; }
+.sb-player-close {
+  flex: none;
+  width: 40px; height: 40px;
+  display: grid; place-items: center;
+  background: transparent;
+  color: var(--color-accent-2-200);
+  border: 2px solid var(--color-accent-2-700);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+}
+.sb-player-close:hover { background: var(--color-accent-800); color: var(--color-ink-invert); }
+
+/* ---- Mobile action bar ---------------------------------------------- */
+.sb-actionbar { display: none; }
+
+/* ---- Mobile menu overlay -------------------------------------------- */
+.sb-menu-toggle { display: none; }
+.sb-menu {
+  position: fixed;
+  inset: 0;
+  z-index: 120;
+  background-color: var(--color-accent);
+  background-image: var(--paisley-url);
+  background-size: 240px 240px;
+  padding: var(--gutter);
+  padding-top: max(var(--gutter), env(safe-area-inset-top));
+  flex-direction: column;
+  gap: var(--space-3);
+  display: none;
+}
+.sb-menu[data-open="true"] { display: flex; }
+.sb-menu a {
+  font-family: var(--font-display);
+  font-size: clamp(34px, 10vw, 56px);
+  line-height: 1.05;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--color-ink-invert);
+  text-shadow: 3px 3px 0 var(--color-accent-900);
+}
+.sb-menu a:hover, .sb-menu a:focus-visible { color: var(--color-accent-2-300); }
+
+/* ====================================================================
+   Responsive — mobile first, enhanced upward
+   ==================================================================== */
+
+/* Generic auto-fitting grids used across the pages */
+.sb-grid-2, .sb-grid-3, .sb-grid-4 { display: grid; gap: var(--space-4); grid-template-columns: 1fr; }
+
+/* Two-up layouts: stacked on phones, side by side from 900px */
+.sb-split, .sb-split-even, .sb-split-rev {
+  display: grid;
+  gap: var(--space-6);
+  grid-template-columns: 1fr;
+  align-items: center;
+}
+@media (min-width: 900px) {
+  .sb-split { grid-template-columns: 1.1fr 0.9fr; gap: var(--space-8); }
+  .sb-split-even { grid-template-columns: 1fr 1fr; gap: var(--space-8); }
+  .sb-split-rev { grid-template-columns: 0.9fr 1.1fr; gap: var(--space-8); }
+  .sb-split-rev > :first-child { order: 2; }
+}
+
+/* A content row that keeps a trailing action on the same line when there's room */
+.sb-row { display: flex; flex-wrap: wrap; gap: var(--space-4); align-items: center; }
+.sb-row > :first-child { flex: 1 1 260px; }
+
+@media (min-width: 640px) {
+  .sb-grid-2, .sb-grid-3, .sb-grid-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-6); }
+}
+@media (min-width: 900px) {
+  .sb-grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .sb-grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+
+/* Snap-scroll carousels on narrow screens — feels like an app, not a
+   shrunk desktop grid. Reverts to a plain grid at 640px and up. */
+@media (max-width: 639px) {
+  .sb-rail {
+    display: grid;
+    /* must clear the explicit track from .sb-grid-*, or the first card is
+       laid into a 1fr column and collapses inside the scroll container */
+    grid-template-columns: none;
+    grid-auto-flow: column;
+    grid-auto-columns: 74%;
+    gap: var(--space-3);
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: var(--space-3);
+    margin-inline: calc(var(--gutter) * -1);
+    padding-inline: var(--gutter);
+    scrollbar-width: none;
+  }
+  .sb-rail::-webkit-scrollbar { display: none; }
+  .sb-rail > * { scroll-snap-align: start; }
+}
+
+/* Mobile navigation + action bar */
+@media (max-width: 899px) {
+  /* must match the specificity of `.nav .sb-navlink` above, or the desktop
+     rule keeps the links visible on phones */
+  .nav .sb-navlink, .nav .sb-navsocial { display: none; }
+  .sb-menu-toggle {
+    display: inline-grid;
+    place-items: center;
+    width: 48px; height: 48px;
+    background: var(--color-accent);
+    color: var(--color-ink-invert);
+    border: 0;
+    border-radius: 50%;
+    box-shadow: var(--shadow-glow);
+    cursor: pointer;
+  }
+  .sb-actionbar {
+    position: fixed;
+    left: 0; right: 0; bottom: 0;
+    z-index: 80;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    box-sizing: content-box;
+    height: var(--actionbar-h);
+    background: color-mix(in srgb, var(--color-ink) 88%, transparent);
+    backdrop-filter: blur(18px) saturate(1.3);
+    -webkit-backdrop-filter: blur(18px) saturate(1.3);
+    border-top: 1px solid color-mix(in srgb, var(--color-accent-2) 35%, transparent);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  .sb-actionbar a, .sb-actionbar button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    height: 100%;
+    padding: 8px 4px;
+    background: transparent;
+    border: 0;
+    border-right: 1.5px solid color-mix(in srgb, var(--color-ink-invert) 22%, transparent);
+    color: var(--color-ink-invert);
+    font-family: var(--font-heading);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .sb-actionbar > :last-child { border-right: 0; }
+  .sb-actionbar svg { width: 19px; height: 19px; fill: currentColor; }
+  .sb-actionbar a:active, .sb-actionbar button:active { background: var(--color-accent); }
+
+  /* Keep the last section clear of the fixed bars, and stack the player
+     directly on top of the action bar rather than over it. */
+  body { padding-bottom: calc(var(--actionbar-h) + 3px + env(safe-area-inset-bottom)); }
+  .sb-player {
+    bottom: calc(var(--actionbar-h) + 3px + env(safe-area-inset-bottom));
+    padding-bottom: 10px;
+  }
+}
+
+@media (min-width: 900px) {
+  .sb-menu { display: none !important; }
+}
+
+/* ====================================================================
+   Motion preferences
+   ==================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .sb-ticker-track { animation: none; transform: none; }
+  .sb-player { transition: none; }
+  /* scroll-driven timelines ignore the duration override above, and the
+     parallax vars are belt-and-braces (site.js already self-disables) */
+  .card, .sb-flip, .sb-sectionhead { animation: none; }
+  /* !important covers the media-query variants of the hero float */
+  .sb-drift::before, .sb-hero-float, .sb-livedot, .sb-float, .sb-stamp { animation: none !important; }
+  .sb-hero-float { transform: none; }
+  .sb-depth-photo, .sb-depth-text { transform: none; }
+}
+
+/* ====================================================================
+   Print
+   ==================================================================== */
+
+@media print {
+  .sb-player, .sb-actionbar, .sb-menu, .sb-menu-toggle, .sb-ticker { display: none !important; }
+  .card { box-shadow: none; }
+}
+
+/* ====================================================================
+   TECHNICOLOR LAYER
+   Overrides that turn Bandana Red & Gold into Skiddle Technicolor.
+   Kept at the end of the file so the diff against the shipped system is
+   readable and everything above stays a like-for-like copy.
+   ==================================================================== */
+
+/* ---- Type split ------------------------------------------------------
+   .sb-poster is reused at 26-30px for tour dates and milestone years,
+   where a bubble face is unreadable — so it returns to Anton, and only
+   the five hero headlines opt into the display face. */
+.sb-poster { font-family: var(--font-heading); }
+
+.sb-poster-display {
+  font-family: var(--font-display);
+  /* Bagel Fat One is wide and round: Anton's 0.88 line-height collides,
+     and its lowercase is friendlier than forcing caps. */
+  text-transform: none;
+  line-height: 0.98;
+  letter-spacing: -0.005em;
+}
+
+/* ---- Per-word colour — the signature move --------------------------- */
+.sb-w1 { color: var(--color-ink-invert); }
+.sb-w2 { color: var(--color-accent-2); }
+/* Full crimson is invisible on these saturated grounds — 1.04:1 against
+   turquoise. Grade 300 keeps it unmistakably in the crimson family and
+   clears 4.76:1 on the worst of the five hues. */
+.sb-dot { color: var(--color-accent-300); }
+
+/* ---- The spot colour drives each page's hero ------------------------
+   Rotating the full-bleed ground per page is what makes the direction
+   read as "colour is the subject" rather than a recolour. Crimson and
+   gold stay constant on top as the anchors. Grades 700->900 keep the
+   ground dark enough for cream type on every hue. Measured, not guessed:
+   at grade 700 the gold headline word only reached 2.78:1 on turquoise —
+   grade 800 puts the worst case at 4.43:1 and cream at 7.92:1. */
+.sb-veil::after {
+  background: linear-gradient(155deg,
+    color-mix(in srgb, var(--color-spot-800) 92%, transparent),
+    color-mix(in srgb, var(--color-spot-900) 96%, transparent));
+}
+.sb-paisley { background-color: var(--color-spot-800); }
+.sb-menu { background-color: var(--color-spot-700); }
+.sb-frame { background: color-mix(in srgb, var(--color-spot-900) 70%, transparent); }
+.sb-flip-back {
+  background-color: var(--color-spot-700);
+  border-color: color-mix(in srgb, var(--color-accent-2) 45%, transparent);
+}
+.sb-flip-back::before { background: color-mix(in srgb, var(--color-spot-900) 82%, transparent); }
+
+/* ---- Sticker tilt, but on elegant surfaces --------------------------
+   Uses the independent `rotate` property, not `transform`, so it composes
+   with the existing hover lift and the flip animation instead of fighting
+   them. Radii, hairline borders and soft shadows are untouched — the
+   playfulness is colour, type and angle, not a die-cut border. */
+.card, .sb-flip {
+  rotate: -1.1deg;
+  transition: rotate 0.32s var(--ease-out), transform 0.32s var(--ease-out),
+              box-shadow 0.32s var(--ease-out), border-color 0.32s var(--ease-out);
+}
+.card:nth-child(even), .sb-flip:nth-child(even) { rotate: 1.1deg; }
+.card:hover, .sb-flip:hover { rotate: 0deg; }
+a.card:hover, .card:hover {
+  border-color: color-mix(in srgb, var(--color-spot-400) 65%, transparent);
+}
+
+/* Tags and kickers pick up the page colour */
+.card-kicker { color: var(--color-spot-300); }
+.tag-accent-2 { background: var(--color-spot-100); color: var(--color-spot-900); border-color: var(--color-spot-300); }
+
+/* ---- Confetti — loose motifs, not a tile ---------------------------- */
+.sb-confetti { position: relative; }
+.sb-confetti::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: var(--paisley-url);
+  background-repeat: no-repeat;
+  background-size: 90px 90px;
+  background-position: 92% 18%;
+  opacity: 0.5;
+  rotate: -14deg;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Motion prefs: the tilt is static geometry, not motion, so it stays —
+   but anything that animates is already handled by the global block. */

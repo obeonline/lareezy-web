@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600">
+  <title>Leader of da UTH Cap</title>
+  <defs>
+    <filter id="cs" x="-25%" y="-25%" width="150%" height="150%">
+      <feDropShadow dx="0" dy="14" stdDeviation="14" flood-color="#17100e" flood-opacity="0.26"/>
+    </filter>
+  </defs>
+
+  <rect width="600" height="600" fill="#feecf3"/>
+
+  <!-- structured snapback, side profile facing right -->
+  <g filter="url(#cs)" transform="translate(-24 32)">
+    <!-- bill: a wedge projecting forward from the lower front of the crown -->
+    <path d="M424 300 C482 300 534 312 562 330 C572 337 570 346 558 348
+             C516 352 462 344 420 332 Z"
+          fill="#85081e" stroke="#17100e" stroke-width="6" stroke-linejoin="round"/>
+    <path d="M436 316 C482 318 524 326 550 336" fill="none" stroke="#f0a81e" stroke-width="3" stroke-dasharray="7 9"/>
+
+    <!-- crown: apex sits forward of centre, back falls away -->
+    <path d="M144 330 C144 238 186 158 300 158 C388 158 434 228 434 330 Z"
+          fill="#c8102e" stroke="#17100e" stroke-width="6" stroke-linejoin="round"/>
+    <!-- front panel catches the light, rear falls into shade -->
+    <path d="M144 330 C144 238 186 158 300 158 L300 330 Z" fill="#17100e" fill-opacity="0.12"/>
+    <!-- panel seams following the crown -->
+    <g stroke="#f0a81e" stroke-width="3" fill="none" stroke-linecap="round">
+      <path d="M300 160 C286 226 282 280 282 330"/>
+      <path d="M372 178 C392 226 400 280 402 330"/>
+    </g>
+    <!-- top button -->
+    <circle cx="300" cy="159" r="13" fill="#f0a81e" stroke="#17100e" stroke-width="5"/>
+
+    <!-- sweatband along the opening -->
+    <path d="M144 306 H434 V330 H144 Z" fill="#85081e" stroke="#17100e" stroke-width="6" stroke-linejoin="round"/>
+    <!-- snapback closure at the rear -->
+    <rect x="132" y="276" width="22" height="38" rx="4" fill="#f0a81e" stroke="#17100e" stroke-width="5"/>
+
+    <!-- embroidery on the front panel -->
+    <g transform="translate(326 250)" text-anchor="middle">
+      <text y="0" font-family="Georgia, serif" font-weight="700" font-size="44"
+            letter-spacing="4" fill="#f0a81e" stroke="#17100e" stroke-width="2.5">UTH</text>
+      <text y="26" font-family="Georgia, serif" font-weight="700" font-size="11.5"
+            letter-spacing="2" fill="#f0a81e">UTILIZE TIME HERE</text>
+    </g>
+  </g>
+</svg>

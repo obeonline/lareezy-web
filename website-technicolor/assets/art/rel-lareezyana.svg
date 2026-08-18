@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600">
+  <title>Welcome to La Reezyana Vol 1. (2025)</title>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f0a81e"/>
+      <stop offset="0.62" stop-color="#e56a7a"/>
+      <stop offset="1" stop-color="#85081e"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="600" height="600" fill="url(#sky)"/>
+  <!-- low sun -->
+  <circle cx="300" cy="352" r="86" fill="#fef6e0" fill-opacity="0.5"/>
+  <!-- road -->
+  <path d="M0 600 L246 352 H354 L600 600 Z" fill="#3b342a"/>
+  <g stroke="#f0a81e" stroke-width="9" stroke-dasharray="26 30">
+    <path d="M300 360 V600"/>
+  </g>
+
+  <!-- highway welcome sign -->
+  <g transform="translate(300 214)">
+    <rect x="-186" y="-104" width="372" height="208" rx="14" fill="#1b4d31" stroke="#f7eedd" stroke-width="7"/>
+    <rect x="-170" y="-88" width="340" height="176" rx="8" fill="none" stroke="#f7eedd" stroke-width="3"/>
+    <text x="0" y="-42" text-anchor="middle" font-family="Georgia, serif" font-weight="700"
+          font-size="24" letter-spacing="7" fill="#f7eedd">WELCOME TO</text>
+    <text x="0" y="18" text-anchor="middle" font-family="Georgia, serif" font-weight="700"
+          font-size="50" letter-spacing="1" fill="#f0a81e">LA REEZYANA</text>
+    <text x="0" y="62" text-anchor="middle" font-family="Georgia, serif" font-weight="700"
+          font-size="20" letter-spacing="5" fill="#f7eedd">VOLUME ONE</text>
+  </g>
+  <!-- posts -->
+  <g fill="#3b342a">
+    <rect x="176" y="318" width="16" height="92"/>
+    <rect x="408" y="318" width="16" height="92"/>
+  </g>
+
+  <text x="300" y="566" text-anchor="middle" font-family="Georgia, serif" font-weight="700"
+        font-size="17" letter-spacing="6" fill="#fef6e0">LA REEZY &#183; 2025</text>
+</svg>

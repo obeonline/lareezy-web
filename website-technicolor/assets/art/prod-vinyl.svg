@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600">
+  <title>Skiddle Bandana 12&quot; vinyl</title>
+  <defs>
+    <pattern id="vp" width="70" height="70" patternUnits="userSpaceOnUse">
+      <g transform="scale(0.42)">
+        <path d="M52 136 C16 118 2 84 16 54 C28 26 58 12 78 26 C96 39 96 68 80 78
+                 C68 86 50 82 47 70 C45 62 50 55 58 55 C52 66 62 74 72 68
+                 C84 60 84 42 72 34 C58 25 36 34 27 56 C15 84 26 114 52 136 Z"
+              fill="none" stroke="#f0a81e" stroke-width="6"/>
+      </g>
+      <circle cx="54" cy="18" r="2.4" fill="#f0a81e"/>
+    </pattern>
+    <filter id="vs" x="-25%" y="-25%" width="150%" height="150%">
+      <feDropShadow dx="0" dy="14" stdDeviation="14" flood-color="#17100e" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <rect width="600" height="600" fill="#d8cffa"/>
+
+  <!-- disc, sliding out to the right -->
+  <g filter="url(#vs)">
+    <circle cx="392" cy="300" r="176" fill="#17100e"/>
+    <g fill="none" stroke="#3b342a" stroke-width="1.6">
+      <circle cx="392" cy="300" r="158"/><circle cx="392" cy="300" r="140"/>
+      <circle cx="392" cy="300" r="122"/><circle cx="392" cy="300" r="104"/>
+    </g>
+    <circle cx="392" cy="300" r="62" fill="#c8102e"/>
+    <circle cx="392" cy="300" r="62" fill="url(#vp)"/>
+    <circle cx="392" cy="300" r="62" fill="none" stroke="#f0a81e" stroke-width="3"/>
+    <circle cx="392" cy="300" r="7" fill="#fde9b8"/>
+  </g>
+
+  <!-- sleeve -->
+  <g filter="url(#vs)">
+    <rect x="60" y="118" width="364" height="364" fill="#c8102e" stroke="#17100e" stroke-width="6"/>
+    <rect x="60" y="118" width="364" height="364" fill="url(#vp)"/>
+    <rect x="80" y="138" width="324" height="324" fill="none" stroke="#f0a81e" stroke-width="3"/>
+    <rect x="92" y="150" width="300" height="300" fill="none" stroke="#f0a81e" stroke-width="1.6" stroke-dasharray="3 8"/>
+
+    <!-- type plate, so the title reads clear of the print -->
+    <rect x="104" y="176" width="276" height="232" fill="#85081e" stroke="#f0a81e" stroke-width="2.5"/>
+
+    <!-- sleeve type -->
+    <g text-anchor="middle" font-family="Georgia, serif" fill="#f0a81e">
+      <text x="242" y="212" font-weight="700" font-size="15" letter-spacing="5">LA REEZY</text>
+      <text x="242" y="292" font-weight="700" font-size="46" letter-spacing="1">SKIDDLE</text>
+      <text x="242" y="342" font-weight="700" font-size="46" letter-spacing="1">BANDANA</text>
+      <text x="242" y="392" font-weight="700" font-size="13" letter-spacing="3.5">12&#8221; LP &#183; 13 TRACKS</text>
+    </g>
+    <!-- spine shading -->
+    <rect x="60" y="118" width="18" height="364" fill="#17100e" fill-opacity="0.22"/>
+  </g>
+</svg>

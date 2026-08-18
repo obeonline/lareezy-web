@@ -5,7 +5,11 @@ deferred, recorded in enough detail to pick up later without re-deriving anythin
 
 ---
 
-## 1. "Skiddle Technicolor" — the alternate art direction
+## 1. "Skiddle Technicolor" — the alternate art direction  ✅ BUILT
+
+**Status: built** (2026-08-18) and living in `website-technicolor/`, alongside the shipped
+`website/`. Not deployed — it runs locally for side-by-side review. See "As built" below for
+where it departs from this original spec.
 
 The shipped design is **Bandana Red & Gold**: disciplined, premium, unmistakably the album.
 The runner-up was louder, younger and more playful. It was not rejected on quality — it is a
@@ -46,6 +50,7 @@ Each needs a 100–900 ramp on the same OKLCH lightness scale as the existing th
    loose across sections at `rotate()` angles rather than only tiling them.
 4. **Sticker collage layout.** Cards tilt `rotate(-2deg … 3deg)`, overlap by 8–16px, and carry
    a white "die-cut" 4px border plus the existing hard shadow. Straighten on hover.
+   ⚠️ *Superseded — the hard shadows this refers to no longer exist. See "As built".*
 5. **Bubble display face.** Swap Anton for **Bagel Fat One** (Google Fonts) as `--font-display`,
    keeping Anton as `--font-heading` for anything that has to stay legible at small sizes.
    Keep Space Grotesk for body.
@@ -60,6 +65,39 @@ Each needs a 100–900 ramp on the same OKLCH lightness scale as the existing th
 
 Everything else — layout, data, player, mobile behaviour — is untouched. Realistically a
 focused day of work, not a rebuild.
+
+### As built — where it departs from the spec above
+
+- **No sticker collage.** Rule 4 was written while the system still used hard offset shadows
+  and square corners; those were deliberately replaced with rounded corners and soft
+  elevation. Keeping die-cut borders would have reimported the brutalism. The playfulness is
+  carried by colour, the display face, and a 1.1° card tilt that straightens on hover —
+  radii, hairline borders and soft shadows are unchanged from the shipped system.
+- **The spot colour drives each hero's full-bleed ground**, not just small accents. This is
+  what makes the direction read as "colour is the subject": Home/About violet, Tour
+  turquoise, Music green, Merch pink, with crimson and gold constant on top.
+- **Two grades darker than planned.** The hero veil runs spot-800 → spot-900, not 700 → 900.
+  Measured, not guessed: at grade 700 the gold headline word hit only 2.78:1 on turquoise.
+  Grade 800 puts the worst case at 4.43:1, with cream body text at 7.92:1.
+- **The full stop is `--color-accent-300`, not crimson.** Full crimson measured 1.04:1
+  against turquoise — invisible. Grade 300 stays in the crimson family and clears 4.76:1 on
+  the worst of the five hues.
+- **`.sb-poster` stays Anton.** It is reused at 26–30px for tour dates and milestone years,
+  where Bagel Fat One is unreadable. Only the five hero headlines opt in, via
+  `.sb-poster-display`, and they render mixed-case rather than caps — friendlier, and a
+  sharper contrast against Red & Gold's all-caps.
+- **Hero type sizes came down** roughly 40%, since Bagel Fat One is far wider than Anton.
+- **Feature parity is enforced, not assumed.** All six test suites (audit, flip, interact,
+  motion, touch, together) pass against the Technicolor folder, and `data.js`, `site.js`,
+  `image-slot.js`, `support.js` and every photograph are byte-identical to `website/`.
+
+### Deploying it
+
+`website-technicolor/vercel.json` is ready. Create a Vercel project with **Root Directory =
+`website-technicolor`** (Vercel then reads config from inside that folder, leaving the
+repo-root `vercel.json` serving the existing project). Suggested name
+`lareezy-website-technicolor`; disable the preview toolbar with
+`VERCEL_PREVIEW_FEEDBACK_ENABLED=0` as on the first project.
 
 ---
 

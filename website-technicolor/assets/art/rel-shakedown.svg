@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600">
+  <title>LAREEZYANA SHAKEDOWN (2025)</title>
+  <defs>
+    <pattern id="ht" width="10" height="10" patternUnits="userSpaceOnUse">
+      <circle cx="5" cy="5" r="2.6" fill="#17100e" fill-opacity="0.5"/>
+    </pattern>
+  </defs>
+
+  <rect width="600" height="600" fill="#f0a81e"/>
+  <rect width="600" height="600" fill="url(#ht)"/>
+
+  <!-- diagonal crimson slabs, the shake -->
+  <g>
+    <path d="M-40 190 L640 92 V212 L-40 310 Z" fill="#c8102e"/>
+    <path d="M-40 330 L640 232 V352 L-40 450 Z" fill="#17100e"/>
+  </g>
+
+  <!-- type riding the slabs -->
+  <g font-family="Georgia, serif" font-weight="700" text-anchor="middle">
+    <g transform="translate(300 232) rotate(-8.2)">
+      <text y="0" font-size="62" letter-spacing="1" fill="#f0a81e">LAREEZYANA</text>
+    </g>
+    <g transform="translate(300 372) rotate(-8.2)">
+      <text y="0" font-size="62" letter-spacing="1" fill="#f7eedd">SHAKEDOWN</text>
+    </g>
+  </g>
+
+  <!-- motion ticks -->
+  <g stroke="#17100e" stroke-width="5" stroke-linecap="round">
+    <path d="M56 462 L128 452"/><path d="M56 486 L106 479"/>
+    <path d="M544 138 L472 148"/><path d="M544 114 L494 121"/>
+  </g>
+
+  <g text-anchor="middle" font-family="Georgia, serif" font-weight="700" fill="#17100e">
+    <text x="300" y="76" font-size="18" letter-spacing="7">LA REEZY</text>
+    <text x="300" y="542" font-size="15" letter-spacing="4.5">NEW ORLEANS &#183; 2025</text>
+  </g>
+</svg>
