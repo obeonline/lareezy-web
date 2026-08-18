@@ -12,6 +12,8 @@ Live preview: see the Vercel deployment link on the branch.
 The old prototype ran on a generic cream-and-terracotta design system. This branch replaces
 it with **Skiddle Bandana** — a bespoke system pulled directly from his own artwork:
 
+- **Deep oxblood ground.** `#260f12`, mixed from the same red as the crimson bands, so the
+  page and the full-bleed sections read as one family rather than fighting each other.
 - **Crimson field, gold paisley print.** The bandana *is* the brand. The seamless paisley
   repeat in `website/assets/art/paisley-tile.svg` is hand-drawn and runs through every surface.
 - **Ticker bands** — `· SKIDDLE BANDANA · OUT NOW ·` in gold slab caps, lifted from the bars
@@ -20,8 +22,23 @@ it with **Skiddle Bandana** — a bespoke system pulled directly from his own ar
 - The album's own thesis drives it: *"Skiddle is the colourful energy and cultural presence
   of Black people; Bandana is unity — carrying collective stories forward."*
 
+The surface treatment is deliberately **soft, not brutalist**: generous radii (26px cards,
+pill buttons and inputs), hairline borders, and layered drop shadows instead of hard offset
+blocks. On this dark ground crimson type fails contrast, so **accent type is gold** and
+crimson is reserved for fills and surfaces — which is exactly how the album artwork uses the
+two colours.
+
 Type is **Anton** (display), **Space Grotesk** (body) and **Alfa Slab One** (tickers, badges,
 prices), all from Google Fonts.
+
+### Interaction
+
+- **Flip stat cards** on the homepage — hover on a pointer device, tap or press Enter on
+  touch and keyboard, so the detail on the back is never mouse-only. Reduced motion swaps the
+  3D tumble for a cross-fade.
+- **Nav links are pills**, with the current page filled crimson, so the cluster reads as a
+  control group rather than loose words in the bar.
+- **Sticky player** with a real 13-track listing (see below).
 
 ## Contents
 

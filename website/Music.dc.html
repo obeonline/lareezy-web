@@ -10,7 +10,7 @@
 <x-dc>
 <helmet>
   <title>Music — La Reezy</title>
-  <meta name="theme-color" content="#c8102e">
+  <meta name="theme-color" content="#260f12">
   <meta name="description" content="Skiddle Bandana — the debut album from La Reezy. Play all 13 tracks, plus the full catalogue back to Reeborn.">
   <meta property="og:title" content="La Reezy — Music">
   <meta property="og:description" content="Skiddle Bandana, 13 tracks. Play it here.">
@@ -25,7 +25,7 @@
 </helmet>
 
 <nav class="nav" data-screen-label="Nav">
-  <a class="nav-brand" href="Home.dc.html" style="text-decoration: none; color: inherit">LA REEZY</a>
+  <a class="nav-brand" href="Home.dc.html" style="text-decoration: none; color: inherit"><img class="sb-mark" src="assets/art/crest.svg" alt="" aria-hidden="true"><span>LA REEZY</span></a>
   <a class="sb-navlink" href="Home.dc.html">Home</a>
   <a class="sb-navlink" href="Tour.dc.html">Tour</a>
   <a class="sb-navlink" href="Music.dc.html" aria-current="page">Music</a>
@@ -51,7 +51,7 @@
 </div>
 
 <!-- ================================================ FEATURED ALBUM -->
-<header class="sb-paisley sb-veil sb-on-crimson" data-screen-label="Featured album" style="border-bottom: 3px solid var(--color-text)">
+<header class="sb-paisley sb-veil sb-on-crimson" data-screen-label="Featured album" style="border-bottom: 1px solid color-mix(in srgb, var(--color-accent-2) 30%, transparent)">
   <div class="sb-shell sb-split-rev" style="padding-block: clamp(44px, 7vw, 80px)">
     <figure class="sb-frame" style="justify-self: center; width: min(100%, 380px)">
       <image-slot id="music-cover" shape="rect" src="assets/skiddle-bandana-cover.jpg" placeholder="Drop the Skiddle Bandana cover art" style="width: 100%; aspect-ratio: 1 / 1"></image-slot>
@@ -119,7 +119,7 @@
   <div class="sb-grid-3">
     <sc-for list="{{ releases }}" as="r" hint-placeholder-count="6">
       <div class="card" style="padding: 0; overflow: hidden; gap: 0">
-        <image-slot id="{{ r.slot }}" shape="rect" src="{{ r.img }}" placeholder="Drop the cover art" style="width: 100%; aspect-ratio: 1 / 1; border-bottom: var(--border-hard)"></image-slot>
+        <image-slot id="{{ r.slot }}" shape="rect" src="{{ r.img }}" placeholder="Drop the cover art" style="width: 100%; aspect-ratio: 1 / 1; border-bottom: 1px solid color-mix(in srgb, var(--color-text) 14%, transparent)"></image-slot>
         <span style="padding: var(--space-3) var(--space-4)">
           <strong style="display: block; font-size: 16px">{{ r.title }}</strong>
           <span class="text-muted" style="font-size: 13px">{{ r.meta }}</span>
@@ -141,9 +141,9 @@
   <div class="sb-grid-3 sb-rail">
     <sc-for list="{{ videos }}" as="v" hint-placeholder-count="3">
       <a href="{{ v.url }}" target="_blank" rel="noopener" class="card" style="padding: 0; overflow: hidden; text-decoration: none; color: inherit; gap: 0"
-         style-hover="transform: translate(-3px, -3px)">
+         style-hover="transform: translateY(-5px)">
         <span style="position: relative; display: block">
-          <img class="washed" src="{{ v.thumb }}" alt="{{ v.title }}" style="width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-bottom: var(--border-hard)">
+          <img class="washed" src="{{ v.thumb }}" alt="{{ v.title }}" style="width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-bottom: 1px solid color-mix(in srgb, var(--color-text) 14%, transparent)">
           <span style="position: absolute; inset: 0; display: grid; place-items: center">
             <span style="width: 58px; height: 58px; display: grid; place-items: center; border-radius: 50%; background: var(--color-accent); border: 2.5px solid var(--color-text)">
               <svg viewBox="0 0 24 24" width="22" height="22" fill="var(--color-ink-invert)" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg>
@@ -156,7 +156,7 @@
   </div>
 </section>
 
-<section class="sb-paisley sb-veil sb-on-crimson" data-screen-label="Follow" style="border-block: 3px solid var(--color-text)">
+<section class="sb-paisley sb-veil sb-on-crimson" data-screen-label="Follow" style="border-block: 1px solid color-mix(in srgb, var(--color-accent-2) 30%, transparent)">
   <div class="sb-shell" style="padding-block: clamp(44px, 7vw, 76px)">
     <span class="sb-eyebrow">Reezy World</span>
     <h2 style="color: var(--color-ink-invert); max-width: 18ch">Get the drops before anybody.</h2>

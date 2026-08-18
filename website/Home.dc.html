@@ -10,7 +10,7 @@
 <x-dc>
 <helmet>
   <title>La Reezy — Skiddle Bandana</title>
-  <meta name="theme-color" content="#c8102e">
+  <meta name="theme-color" content="#260f12">
   <meta name="description" content="NOLA's own La Reezy. Debut album Skiddle Bandana out now — 13 tracks. On the road with Chance the Rapper.">
   <meta property="og:title" content="La Reezy — Skiddle Bandana">
   <meta property="og:description" content="NOLA's own. Debut album out now. On tour with Chance the Rapper.">
@@ -27,7 +27,7 @@
 
 <!-- ============================================================ NAV -->
 <nav class="nav" data-screen-label="Nav">
-  <a class="nav-brand" href="Home.dc.html" style="text-decoration: none; color: inherit">LA REEZY</a>
+  <a class="nav-brand" href="Home.dc.html" style="text-decoration: none; color: inherit"><img class="sb-mark" src="assets/art/crest.svg" alt="" aria-hidden="true"><span>LA REEZY</span></a>
   <a class="sb-navlink" href="Home.dc.html" aria-current="page">Home</a>
   <a class="sb-navlink" href="Tour.dc.html">Tour</a>
   <a class="sb-navlink" href="Music.dc.html">Music</a>
@@ -54,7 +54,7 @@
 </div>
 
 <!-- =========================================================== HERO -->
-<header class="sb-paisley sb-veil sb-on-crimson" data-screen-label="Hero" style="border-bottom: 3px solid var(--color-text)">
+<header class="sb-paisley sb-veil sb-on-crimson" data-screen-label="Hero" style="border-bottom: 1px solid color-mix(in srgb, var(--color-accent-2) 30%, transparent)">
   <div class="sb-shell sb-split" style="padding-block: clamp(48px, 9vw, 96px)">
 
     <div>
@@ -97,18 +97,32 @@
 <section class="sb-shell" data-screen-label="Stats" style="padding-block: clamp(40px, 6vw, 72px)">
   <div class="sb-grid-4">
     <sc-for list="{{ stats }}" as="s" hint-placeholder-count="4">
-      <div class="card" style="gap: var(--space-2)">
-        <span class="sb-poster" style="font-size: 52px; color: var(--color-accent)">{{ s.n }}</span>
-        <span class="card-title" style="font-size: 15px; letter-spacing: 0.06em">{{ s.label }}</span>
-        <p class="card-body" style="margin: 0">{{ s.detail }}</p>
-      </div>
+      <!-- data-flipped / aria-pressed are set by site.js at runtime, never
+           here: the DC runtime re-renders and would revert any attribute
+           it finds in this template. -->
+      <button type="button" class="sb-flip" data-action="flip">
+        <span class="sb-flip-inner">
+          <span class="sb-flip-face sb-flip-front">
+            <span class="sb-flip-n">{{ s.n }}</span>
+            <span class="sb-flip-label">{{ s.label }}</span>
+            <span class="sb-flip-hint">
+              <svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor" aria-hidden="true"><path d="M12 5V2L7 6l5 4V7a5 5 0 1 1-5 5H5a7 7 0 1 0 7-7z"/></svg>
+              More
+            </span>
+          </span>
+          <span class="sb-flip-face sb-flip-back">
+            <span class="sb-flip-kicker">{{ s.label }}</span>
+            <span class="sb-flip-detail">{{ s.detail }}</span>
+          </span>
+        </span>
+      </button>
     </sc-for>
   </div>
 </section>
 
 <!-- ==================================================== ALBUM FEATURE -->
 <section class="sb-shell" data-screen-label="Album" style="padding-bottom: clamp(40px, 6vw, 72px)">
-  <div class="sb-split-rev" style="background: var(--color-text); border: var(--border-hard); border-radius: var(--radius-lg); box-shadow: var(--shadow-hard); padding: clamp(24px, 4vw, 44px); position: relative; overflow: hidden">
+  <div class="sb-split-rev" style="background: var(--color-ink); border: var(--border-hard); border-radius: var(--radius-lg); box-shadow: var(--shadow-hard); padding: clamp(24px, 4vw, 44px); position: relative; overflow: hidden">
     <div class="sb-paisley-layer" style="opacity: 0.1"></div>
     <figure class="sb-frame" style="position: relative; width: min(100%, 300px); justify-self: center">
       <image-slot id="home-cover" shape="rect" src="assets/skiddle-bandana-cover.jpg" placeholder="Album cover" style="width: 100%; aspect-ratio: 1 / 1"></image-slot>
@@ -143,7 +157,7 @@
   <!-- homecoming, pulled out -->
   <a href="https://www.ticketmaster.com/chance-the-rapper-coloring-book-10-new-orleans-louisiana-09-09-2026/event/1B0064ACADB5B71F" target="_blank" rel="noopener"
      class="sb-paisley sb-veil sb-on-crimson sb-row" style="padding: clamp(22px, 3.5vw, 34px); border: var(--border-hard); border-radius: var(--radius-lg); box-shadow: var(--shadow-hard); text-decoration: none; color: var(--color-ink-invert); margin-bottom: var(--space-6)"
-     style-hover="transform: translate(-3px, -3px)">
+     style-hover="transform: translateY(-5px)">
     <div>
       <span class="tag tag-accent-2">Homecoming</span>
       <h3 style="color: var(--color-ink-invert); margin: var(--space-3) 0 var(--space-2)">Sep 9 &#183; New Orleans</h3>
@@ -156,8 +170,8 @@
     <sc-for list="{{ dates }}" as="d" hint-placeholder-count="4">
       <a href="{{ d.url }}" target="_blank" rel="noopener"
          style="display: flex; align-items: center; gap: var(--space-4); padding: var(--space-4) var(--space-2); border-bottom: 1.5px solid var(--color-divider); text-decoration: none; color: inherit; flex-wrap: wrap"
-         style-hover="background: var(--color-accent-2-100)">
-        <span class="sb-poster" style="font-size: 30px; min-width: 108px; color: var(--color-accent)">{{ d.date }}</span>
+         style-hover="background: color-mix(in srgb, var(--color-accent) 30%, transparent)">
+        <span class="sb-poster" style="font-size: 30px; min-width: 108px; color: var(--color-accent-text)">{{ d.date }}</span>
         <span style="flex: 1; min-width: 180px">
           <strong style="display: block; font-size: 17px">{{ d.city }}</strong>
           <span style="font-size: 14px; opacity: 0.7">{{ d.venue }}</span>
@@ -180,9 +194,9 @@
   <div class="sb-grid-3 sb-rail">
     <sc-for list="{{ videos }}" as="v" hint-placeholder-count="3">
       <a href="{{ v.url }}" target="_blank" rel="noopener" class="card" style="padding: 0; overflow: hidden; text-decoration: none; color: inherit; gap: 0"
-         style-hover="transform: translate(-3px, -3px)">
+         style-hover="transform: translateY(-5px)">
         <span style="position: relative; display: block">
-          <img class="washed" src="{{ v.thumb }}" alt="{{ v.title }}" style="width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-bottom: var(--border-hard)">
+          <img class="washed" src="{{ v.thumb }}" alt="{{ v.title }}" style="width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-bottom: 1px solid color-mix(in srgb, var(--color-text) 14%, transparent)">
           <span style="position: absolute; inset: 0; display: grid; place-items: center">
             <span style="width: 58px; height: 58px; display: grid; place-items: center; border-radius: 50%; background: var(--color-accent); border: 2.5px solid var(--color-text)">
               <svg viewBox="0 0 24 24" width="22" height="22" fill="var(--color-ink-invert)" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg>
@@ -207,11 +221,11 @@
   <div class="sb-grid-3 sb-rail">
     <sc-for list="{{ teasers }}" as="t" hint-placeholder-count="3">
       <a href="Merch.dc.html" class="card" style="padding: 0; overflow: hidden; text-decoration: none; color: inherit; gap: 0"
-         style-hover="transform: translate(-3px, -3px)">
-        <image-slot id="{{ t.slot }}" shape="rect" src="{{ t.img }}" placeholder="{{ t.placeholder }}" style="width: 100%; aspect-ratio: 1 / 1; border-bottom: var(--border-hard)"></image-slot>
+         style-hover="transform: translateY(-5px)">
+        <image-slot id="{{ t.slot }}" shape="rect" src="{{ t.img }}" placeholder="{{ t.placeholder }}" style="width: 100%; aspect-ratio: 1 / 1; border-bottom: 1px solid color-mix(in srgb, var(--color-text) 14%, transparent)"></image-slot>
         <span style="display: flex; align-items: baseline; gap: var(--space-3); padding: var(--space-3) var(--space-4)">
           <strong style="font-size: 16px">{{ t.name }}</strong>
-          <span style="margin-left: auto; font-family: var(--font-ticker); font-size: 15px; color: var(--color-accent)">{{ t.price }}</span>
+          <span style="margin-left: auto; font-family: var(--font-ticker); font-size: 15px; color: var(--color-accent-text)">{{ t.price }}</span>
         </span>
       </a>
     </sc-for>
@@ -219,7 +233,7 @@
 </section>
 
 <!-- ==================================================== FOLLOW BAND -->
-<section class="sb-paisley sb-veil sb-on-crimson" data-screen-label="Follow" style="border-block: 3px solid var(--color-text)">
+<section class="sb-paisley sb-veil sb-on-crimson" data-screen-label="Follow" style="border-block: 1px solid color-mix(in srgb, var(--color-accent-2) 30%, transparent)">
   <div class="sb-shell" style="padding-block: clamp(44px, 7vw, 76px); position: relative">
     <span class="sb-eyebrow">Reezy World</span>
     <h2 style="color: var(--color-ink-invert); max-width: 18ch">Get the drops before anybody.</h2>
@@ -302,10 +316,10 @@ class Component extends DCLogic {
       ticketsUrl: this.props.ticketsUrl ?? 'https://www.ticketmaster.com/la-reezy-tickets/artist/3142407',
 
       stats: [
-        { n: '13', label: 'Tracks', detail: 'Curly Head Boy through We Live — 35 minutes, no filler.' },
-        { n: '20', label: 'Shows', detail: 'Supporting Chance the Rapper, Aug 18 – Sep 20 2026.' },
-        { n: 'XXL', label: 'Freshman ’26', detail: 'Named to the 2026 XXL Freshman Class in June.' },
-        { n: '504', label: 'New Orleans', detail: '12th Ward, near Napoleon Avenue. Leader of da UTH.' },
+        { n: '13', label: 'Tracks', detail: 'Curly Head Boy through We Live — 35 minutes, no filler. Written, produced and engineered by Reezy himself, out on UnitedMasters.' },
+        { n: '20', label: 'Shows', detail: 'Supporting Chance the Rapper on the Coloring Book 10 Year Anniversary Tour, Aug 18 – Sep 20 2026. Homecoming Sep 9 at The Fillmore New Orleans.' },
+        { n: 'XXL', label: 'Freshman ’26', detail: 'Named to the XXL Freshman Class in June, weeks before the debut landed. Co-signs from Kendrick Lamar, Tyler the Creator, J. Cole and Master P.' },
+        { n: '504', label: 'New Orleans', detail: 'Raised in the 12th Ward near Napoleon Avenue. Founder of the UTH Foundation — Utilize Time Here — closing opportunity gaps for NOLA youth.' },
       ],
 
       // First four of the real routing; the homecoming is featured separately.

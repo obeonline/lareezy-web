@@ -10,7 +10,7 @@
 <x-dc>
 <helmet>
   <title>Merch — La Reezy</title>
-  <meta name="theme-color" content="#c8102e">
+  <meta name="theme-color" content="#260f12">
   <meta name="description" content="The Skiddle Bandana drop — bandana, tee, cap, hoodie, vinyl and signed tour poster.">
   <meta property="og:title" content="La Reezy — The Skiddle Bandana drop">
   <meta property="og:description" content="Six pieces made in the spirit of the album.">
@@ -25,7 +25,7 @@
 </helmet>
 
 <nav class="nav" data-screen-label="Nav">
-  <a class="nav-brand" href="Home.dc.html" style="text-decoration: none; color: inherit">LA REEZY</a>
+  <a class="nav-brand" href="Home.dc.html" style="text-decoration: none; color: inherit"><img class="sb-mark" src="assets/art/crest.svg" alt="" aria-hidden="true"><span>LA REEZY</span></a>
   <a class="sb-navlink" href="Home.dc.html">Home</a>
   <a class="sb-navlink" href="Tour.dc.html">Tour</a>
   <a class="sb-navlink" href="Music.dc.html">Music</a>
@@ -50,7 +50,7 @@
   <a href="{{ ticketsUrl }}" target="_blank" rel="noopener" style="color: var(--color-accent-2-300)">Tickets &#8599;</a>
 </div>
 
-<header class="sb-paisley sb-veil sb-on-crimson" data-screen-label="Merch hero" style="border-bottom: 3px solid var(--color-text)">
+<header class="sb-paisley sb-veil sb-on-crimson" data-screen-label="Merch hero" style="border-bottom: 1px solid color-mix(in srgb, var(--color-accent-2) 30%, transparent)">
   <div class="sb-shell sb-split" style="padding-block: clamp(44px, 7vw, 80px)">
     <div>
       <span class="sb-eyebrow">The Skiddle Bandana drop</span>
@@ -76,8 +76,8 @@
 <section class="sb-shell" data-screen-label="Products" style="padding-block: clamp(40px, 6vw, 72px)">
   <div class="sb-grid-3">
     <sc-for list="{{ products }}" as="p" hint-placeholder-count="6">
-      <div class="card" style="padding: 0; overflow: hidden; gap: 0" style-hover="transform: translate(-3px, -3px)">
-        <span style="position: relative; display: block; border-bottom: var(--border-hard)">
+      <div class="card" style="padding: 0; overflow: hidden; gap: 0" style-hover="transform: translateY(-5px)">
+        <span style="position: relative; display: block; border-bottom: 1px solid color-mix(in srgb, var(--color-text) 14%, transparent)">
           <image-slot id="{{ p.slot }}" shape="rect" src="{{ p.img }}" placeholder="{{ p.placeholder }}" style="width: 100%; aspect-ratio: 1 / 1"></image-slot>
           <sc-if value="{{ p.tag }}">
             <span class="tag tag-accent" style="position: absolute; top: 12px; left: 12px">{{ p.tag }}</span>
@@ -86,7 +86,7 @@
         <span style="display: flex; flex-direction: column; gap: 8px; padding: var(--space-4); flex: 1">
           <span style="display: flex; align-items: baseline; gap: var(--space-3)">
             <strong style="font-size: 17px">{{ p.name }}</strong>
-            <span style="margin-left: auto; font-family: var(--font-ticker); font-size: 16px; color: var(--color-accent)">{{ p.price }}</span>
+            <span style="margin-left: auto; font-family: var(--font-ticker); font-size: 16px; color: var(--color-accent-text)">{{ p.price }}</span>
           </span>
           <span class="text-muted" style="font-size: 13.5px; line-height: 1.5">{{ p.desc }}</span>
           <button type="button" class="btn btn-secondary btn-block" style="margin-top: auto">Notify me</button>
@@ -99,7 +99,7 @@
   </p>
 </section>
 
-<section class="sb-paisley sb-veil sb-on-crimson" data-screen-label="Drop signup" style="border-block: 3px solid var(--color-text)">
+<section class="sb-paisley sb-veil sb-on-crimson" data-screen-label="Drop signup" style="border-block: 1px solid color-mix(in srgb, var(--color-accent-2) 30%, transparent)">
   <div class="sb-shell" style="padding-block: clamp(44px, 7vw, 76px)">
     <span class="sb-eyebrow">Reezy World</span>
     <h2 style="color: var(--color-ink-invert); max-width: 18ch">First dibs on the drop.</h2>

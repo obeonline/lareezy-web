@@ -10,7 +10,7 @@
 <x-dc>
 <helmet>
   <title>Tour — La Reezy</title>
-  <meta name="theme-color" content="#c8102e">
+  <meta name="theme-color" content="#260f12">
   <meta name="description" content="La Reezy on the road — 20 dates supporting Chance the Rapper's Coloring Book 10 Year Anniversary Tour, Aug 18 to Sep 20 2026.">
   <meta property="og:title" content="La Reezy — Tour 2026">
   <meta property="og:description" content="20 dates with Chance the Rapper. Homecoming show Sep 9 at The Fillmore New Orleans.">
@@ -25,7 +25,7 @@
 </helmet>
 
 <nav class="nav" data-screen-label="Nav">
-  <a class="nav-brand" href="Home.dc.html" style="text-decoration: none; color: inherit">LA REEZY</a>
+  <a class="nav-brand" href="Home.dc.html" style="text-decoration: none; color: inherit"><img class="sb-mark" src="assets/art/crest.svg" alt="" aria-hidden="true"><span>LA REEZY</span></a>
   <a class="sb-navlink" href="Home.dc.html">Home</a>
   <a class="sb-navlink" href="Tour.dc.html" aria-current="page">Tour</a>
   <a class="sb-navlink" href="Music.dc.html">Music</a>
@@ -51,7 +51,7 @@
 </div>
 
 <!-- =========================================================== HERO -->
-<header class="sb-paisley sb-veil sb-on-crimson" data-screen-label="Tour hero" style="border-bottom: 3px solid var(--color-text)">
+<header class="sb-paisley sb-veil sb-on-crimson" data-screen-label="Tour hero" style="border-bottom: 1px solid color-mix(in srgb, var(--color-accent-2) 30%, transparent)">
   <div class="sb-shell sb-split" style="padding-block: clamp(44px, 7vw, 80px)">
     <div>
       <span class="sb-eyebrow">Coloring Book 10 Year Anniversary Tour</span>
@@ -81,7 +81,7 @@
 <section class="sb-shell" data-screen-label="Homecoming" style="padding-block: clamp(36px, 5vw, 64px)">
   <a href="https://www.ticketmaster.com/chance-the-rapper-coloring-book-10-new-orleans-louisiana-09-09-2026/event/1B0064ACADB5B71F" target="_blank" rel="noopener"
      class="sb-paisley sb-veil sb-on-crimson sb-row" style="padding: clamp(24px, 4vw, 40px); border: var(--border-hard); border-radius: var(--radius-lg); box-shadow: var(--shadow-hard); text-decoration: none; color: var(--color-ink-invert)"
-     style-hover="transform: translate(-3px, -3px)">
+     style-hover="transform: translateY(-5px)">
     <div>
       <span class="tag tag-accent-2">The homecoming</span>
       <h2 style="color: var(--color-ink-invert); margin: var(--space-3) 0 var(--space-2)">Sep 9 &#183; New Orleans</h2>
@@ -105,9 +105,9 @@
     <sc-for list="{{ dates }}" as="d" hint-placeholder-count="20">
       <a href="{{ d.url }}" target="_blank" rel="noopener"
          style="display: flex; align-items: center; gap: var(--space-4); padding: var(--space-4) var(--space-2); border-bottom: 1.5px solid var(--color-divider); text-decoration: none; color: inherit; flex-wrap: wrap"
-         style-hover="background: var(--color-accent-2-100)">
+         style-hover="background: color-mix(in srgb, var(--color-accent) 30%, transparent)">
         <span style="min-width: 116px">
-          <span class="sb-poster" style="display: block; font-size: 28px; color: var(--color-accent)">{{ d.date }}</span>
+          <span class="sb-poster" style="display: block; font-size: 28px; color: var(--color-accent-text)">{{ d.date }}</span>
           <span class="text-muted" style="font-size: 12px; letter-spacing: 0.08em">{{ d.day }}</span>
         </span>
         <span style="flex: 1; min-width: 190px">
@@ -134,7 +134,7 @@
 </section>
 
 <!-- ==================================================== FOLLOW BAND -->
-<section class="sb-paisley sb-veil sb-on-crimson" data-screen-label="Follow" style="border-block: 3px solid var(--color-text)">
+<section class="sb-paisley sb-veil sb-on-crimson" data-screen-label="Follow" style="border-block: 1px solid color-mix(in srgb, var(--color-accent-2) 30%, transparent)">
   <div class="sb-shell" style="padding-block: clamp(44px, 7vw, 76px)">
     <span class="sb-eyebrow">Reezy World</span>
     <h2 style="color: var(--color-ink-invert); max-width: 18ch">Get the drops before anybody.</h2>

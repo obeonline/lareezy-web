@@ -23,7 +23,7 @@ a home in the current token file, so the change is mostly a `styles.css` swap.
 
 | Role | Token | Value | Use |
 |---|---|---|---|
-| Ground | `--color-bg` | `#FFF8EC` | brighter, cooler paper than today's bone |
+| Ground | `--color-bg` | `#1C1030` | a violet-leaning dark, to the shipped oxblood's red |
 | Anchor | `--color-accent` | `#C8102E` | unchanged crimson |
 | Anchor | `--color-accent-2` | `#F0A81E` | unchanged marigold |
 | Spot | `--color-accent-3` | `#2E7D4F` | already in the system, promoted to front rank |
@@ -151,3 +151,17 @@ in the repo. This also makes the site crawlable, which currently it largely is n
 - **Accessibility audit against real assistive tech.** Contrast, focus order, target sizes and
   reduced-motion are all handled, and the build was verified programmatically, but nothing has
   been through an actual screen reader.
+
+---
+
+## 7. A runtime constraint worth knowing about
+
+The DC runtime (`support.js`) re-renders and can replace DOM nodes outright, which **reverts
+any attribute declared in the template** and wipes anything JavaScript wrote onto those nodes.
+This bit the flip cards: `data-flipped` set on click was silently reset within a frame.
+
+The working pattern, in `site.js`, is: keep the state in a JS object keyed by card index,
+never in the DOM; re-apply it after every render via a `MutationObserver`; and never declare
+the stateful attribute in the `.dc.html` template. Anything else interactive added later
+should follow the same rule. Pre-rendering to static HTML (item 5) would remove the
+constraint entirely.
