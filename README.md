@@ -3,7 +3,18 @@
 Website redesign for the New Orleans artist **La Reezy** (Khayree Salahuddin) — a refresh
 of [lareezy.com](https://lareezy.com), built around his debut album *Skiddle Bandana*.
 
-Live preview: see the Vercel deployment link on the branch.
+## Two art directions, deployed side by side
+
+| Version | Folder | Vercel project |
+|---|---|---|
+| **Bandana Red & Gold** — shipped direction | `website/` | `lareezy-web` |
+| **Skiddle Technicolor** — alternate direction | `website-technicolor/` | `lareezy-website-technicolor` |
+
+Both build from this branch as preview deployments (each project's production branch is
+`main`, which predates the redesign). The two sites share identical content, data and
+features — `data.js`, `site.js` and every photograph are byte-identical between the folders —
+so they differ only in art direction. See [FUTURE-DECISIONS.md](FUTURE-DECISIONS.md) §1 for
+what Technicolor changes and why.
 
 ---
 
