@@ -121,6 +121,45 @@
       }
     }
   }
+  /* ------------------------------------------------------- parallax */
+  /* Pointer-reactive hero. Normalized cursor position goes onto <html> as
+     CSS custom properties — the DC runtime re-renders its own subtree but
+     never touches documentElement, so the state survives (same principle
+     as the flip cards). CSS consumes the vars in .sb-depth-photo/-text.
+     Desktop pointers only, and off entirely under reduced motion. */
+  (function () {
+    var mq = window.matchMedia('(hover: hover) and (prefers-reduced-motion: no-preference)');
+    var raf = 0;
+    var px = 0, py = 0;
+
+    function onMove(ev) {
+      // always keep the freshest position; write it once per frame
+      px = ev.clientX;
+      py = ev.clientY;
+      if (raf) return;
+      raf = requestAnimationFrame(function () {
+        raf = 0;
+        var mx = (px / window.innerWidth) * 2 - 1;
+        var my = (py / window.innerHeight) * 2 - 1;
+        document.documentElement.style.setProperty('--sb-mx', mx.toFixed(3));
+        document.documentElement.style.setProperty('--sb-my', my.toFixed(3));
+      });
+    }
+
+    function apply() {
+      if (mq.matches) {
+        window.addEventListener('pointermove', onMove, { passive: true });
+      } else {
+        window.removeEventListener('pointermove', onMove);
+        document.documentElement.style.removeProperty('--sb-mx');
+        document.documentElement.style.removeProperty('--sb-my');
+      }
+    }
+
+    apply();
+    if (mq.addEventListener) mq.addEventListener('change', apply);
+  })();
+
   /* Stamping the initial aria-pressed is awkward to time: the helmet hoists
      this script around the same moment the runtime renders, so the cards may
      not exist yet, and depending on ordering no further mutation fires. A

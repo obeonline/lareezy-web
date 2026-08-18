@@ -39,6 +39,12 @@ prices), all from Google Fonts.
 - **Nav links are pills**, with the current page filled crimson, so the cluster reads as a
   control group rather than loose words in the bar.
 - **Sticky player** with a real 13-track listing (see below).
+- **A living hero** — the paisley print drifts ambiently (a seamless one-tile loop at
+  ~3px/s), the portrait slowly breathes (Ken Burns), and on desktop the photo and headline
+  glide a few pixels in opposite directions following the cursor. Sections rise in on scroll
+  where the browser supports scroll-driven animations. Every motion is transform/opacity
+  only and switches off under `prefers-reduced-motion`; parallax state lives on
+  `documentElement` so the canvas runtime's re-renders can't wipe it.
 
 ## Contents
 

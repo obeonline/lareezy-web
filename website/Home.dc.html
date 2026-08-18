@@ -54,11 +54,11 @@
 </div>
 
 <!-- =========================================================== HERO -->
-<header class="sb-paisley sb-veil sb-on-crimson" data-screen-label="Hero" style="border-bottom: 1px solid color-mix(in srgb, var(--color-accent-2) 30%, transparent)">
+<header class="sb-paisley sb-veil sb-drift sb-on-crimson" data-screen-label="Hero" style="border-bottom: 1px solid color-mix(in srgb, var(--color-accent-2) 30%, transparent)">
   <div class="sb-shell sb-split" style="padding-block: clamp(48px, 9vw, 96px)">
 
-    <div>
-      <span class="sb-eyebrow">NOLA&#8217;s own &#183; XXL Freshman &#8217;26</span>
+    <div class="sb-depth-text">
+      <span class="sb-eyebrow"><span class="sb-livedot"></span>NOLA&#8217;s own &#183; XXL Freshman &#8217;26</span>
       <h1 class="sb-poster sb-poster-xl sb-poster-shadow" style="color: var(--color-ink-invert); margin-bottom: var(--space-4)">Skiddle<br>Bandana.</h1>
       <p style="max-width: 46ch; font-size: clamp(16px, 2.1vw, 19px); color: color-mix(in srgb, var(--color-ink-invert) 88%, transparent)">
         The debut album from Khayree Salahuddin &#8212; 13 tracks out of the 12th Ward, where jazz, soul and trap carry the same stories forward.
@@ -78,8 +78,10 @@
       </p>
     </div>
 
-    <figure class="sb-frame" style="justify-self: center; width: min(100%, 460px)">
-      <image-slot id="hero-photo" shape="rect" src="assets/hero-chains.jpg" placeholder="Drop a full-bleed hero photo" class="washed" style="width: 100%; aspect-ratio: 3 / 4"></image-slot>
+    <figure class="sb-frame sb-depth-photo" style="justify-self: center; width: min(100%, 460px)">
+      <div class="sb-kenburns">
+        <image-slot id="hero-photo" shape="rect" src="assets/hero-chains.jpg" placeholder="Drop a full-bleed hero photo" class="washed" style="width: 100%; aspect-ratio: 3 / 4"></image-slot>
+      </div>
     </figure>
 
   </div>
@@ -124,7 +126,7 @@
 <section class="sb-shell" data-screen-label="Album" style="padding-bottom: clamp(40px, 6vw, 72px)">
   <div class="sb-split-rev" style="background: var(--color-ink); border: var(--border-hard); border-radius: var(--radius-lg); box-shadow: var(--shadow-hard); padding: clamp(24px, 4vw, 44px); position: relative; overflow: hidden">
     <div class="sb-paisley-layer" style="opacity: 0.1"></div>
-    <figure class="sb-frame" style="position: relative; width: min(100%, 300px); justify-self: center">
+    <figure class="sb-frame sb-float" style="position: relative; width: min(100%, 300px); justify-self: center">
       <image-slot id="home-cover" shape="rect" src="assets/skiddle-bandana-cover.jpg" placeholder="Album cover" style="width: 100%; aspect-ratio: 1 / 1"></image-slot>
     </figure>
     <div style="position: relative; color: var(--color-ink-invert)">
@@ -198,7 +200,7 @@
         <span style="position: relative; display: block">
           <img class="washed" src="{{ v.thumb }}" alt="{{ v.title }}" style="width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-bottom: 1px solid color-mix(in srgb, var(--color-text) 14%, transparent)">
           <span style="position: absolute; inset: 0; display: grid; place-items: center">
-            <span style="width: 58px; height: 58px; display: grid; place-items: center; border-radius: 50%; background: var(--color-accent); border: 2.5px solid var(--color-text)">
+            <span class="sb-playbadge" style="width: 58px; height: 58px; display: grid; place-items: center; border-radius: 50%; background: var(--color-accent); border: 2.5px solid var(--color-text)">
               <svg viewBox="0 0 24 24" width="22" height="22" fill="var(--color-ink-invert)" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg>
             </span>
           </span>

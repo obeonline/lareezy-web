@@ -221,8 +221,28 @@ figcaption { font-size: 13px; color: color-mix(in srgb, var(--color-text) 60%, t
   border: 1px solid color-mix(in srgb, var(--color-text) 26%, transparent);
   border-radius: var(--radius-pill);
   cursor: pointer;
+  position: relative;
+  overflow: hidden; /* clips the .btn-primary shimmer sweep */
   transition: transform 0.24s var(--ease-out), box-shadow 0.24s var(--ease-out),
               background-color 0.2s ease, border-color 0.2s ease;
+}
+
+/* Gold shimmer sweep across the primary action on hover */
+.btn-primary::after {
+  content: "";
+  position: absolute;
+  top: 0; bottom: 0;
+  left: -60%;
+  width: 40%;
+  background: linear-gradient(105deg, transparent,
+    color-mix(in srgb, var(--color-accent-2) 55%, transparent), transparent);
+  transform: skewX(-18deg);
+  pointer-events: none;
+}
+.btn-primary:hover::after { animation: sb-shimmer 0.6s ease-out; }
+@keyframes sb-shimmer {
+  from { left: -60%; }
+  to   { left: 130%; }
 }
 .btn:hover {
   background: color-mix(in srgb, var(--color-text) 13%, transparent);
@@ -583,6 +603,49 @@ footer .nav-brand { font-size: 28px; }
   mix-blend-mode: multiply;
 }
 
+/* Ambient drift — the paisley print moves on its own. Sits on elements that
+   already carry .sb-paisley.sb-veil: the static background is replaced by an
+   oversized ::before layer that translates exactly one tile period (260px)
+   and loops seamlessly. ~3px/s: ambience, not animation. */
+.sb-drift { background-image: none; overflow: hidden; }
+.sb-drift::before {
+  content: "";
+  position: absolute;
+  inset: -260px;
+  background-image: var(--paisley-url);
+  background-size: 260px 260px;
+  background-repeat: repeat;
+  will-change: transform;
+  animation: sb-drift-pan 80s linear infinite;
+  pointer-events: none;
+}
+@keyframes sb-drift-pan {
+  from { transform: translate(0, 0); }
+  to   { transform: translate(260px, 260px); }
+}
+
+/* Ken Burns — the wrapper clips (it becomes the .sb-frame > * that carries
+   the radius), the <image-slot> host inside breathes. Shadow DOM keeps the
+   inner <img> out of reach, so the host is what scales. */
+.sb-kenburns image-slot { animation: sb-kenburns 24s ease-in-out infinite alternate; }
+@keyframes sb-kenburns {
+  from { transform: scale(1); }
+  to   { transform: scale(1.05); }
+}
+
+/* Pointer parallax depth planes. site.js writes --sb-mx / --sb-my (-1..1)
+   onto <html> — outside the DC runtime's re-render zone — and these glide
+   toward the cursor. Without the vars (touch, reduced motion) they resolve
+   to 0 and the transforms are identity. */
+.sb-depth-photo {
+  transform: translate(calc(var(--sb-mx, 0) * 10px), calc(var(--sb-my, 0) * 8px));
+  transition: transform 0.6s var(--ease-out);
+}
+.sb-depth-text {
+  transform: translate(calc(var(--sb-mx, 0) * -4px), calc(var(--sb-my, 0) * -4px));
+  transition: transform 0.6s var(--ease-out);
+}
+
 /* Darkening veil over a paisley ground, so type stays readable on top of it */
 .sb-veil { position: relative; isolation: isolate; }
 .sb-veil::after {
@@ -658,6 +721,50 @@ footer .nav-brand { font-size: 28px; }
 }
 .sb-on-crimson .sb-eyebrow { color: var(--color-accent-2-300); }
 
+/* ---- Scroll reveals — sections arrive instead of existing ------------
+   Pure CSS, no markup and no JS, so the DC runtime's re-renders can't
+   break it. The base state is the final state: browsers without
+   scroll-driven animations simply show everything. */
+@supports (animation-timeline: view()) {
+  .card, .sb-flip, .sb-sectionhead {
+    /* backwards, not both: once the range completes the animation stops
+       applying, so the base transform returns and the .card:hover lift
+       (a non-!important rule the animation would otherwise override)
+       keeps working. */
+    animation: sb-rise linear backwards;
+    animation-timeline: view();
+    animation-range: entry 0% entry 45%;
+  }
+}
+@keyframes sb-rise {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ---- Micro-motion details ------------------------------------------- */
+
+/* Pulsing live dot for the hero eyebrow */
+.sb-livedot {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--color-accent-2);
+  animation: sb-pulse 2s ease-in-out infinite;
+  flex: none;
+}
+@keyframes sb-pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(0.72); opacity: 0.55; }
+}
+
+/* Gentle float for a featured cover */
+.sb-float { animation: sb-float 7s ease-in-out infinite alternate; }
+@keyframes sb-float {
+  from { transform: translateY(0); }
+  to   { transform: translateY(-8px); }
+}
+
 /* ---- Stamp / seal --------------------------------------------------- */
 .sb-stamp {
   display: inline-grid;
@@ -677,6 +784,12 @@ footer .nav-brand { font-size: 28px; }
   text-transform: uppercase;
   transform: rotate(-11deg);
   flex: none;
+  animation: sb-rock 6s ease-in-out infinite;
+}
+/* base rotation baked in — an animation replaces the whole transform */
+@keyframes sb-rock {
+  0%, 100% { transform: rotate(-11deg); }
+  50% { transform: rotate(-7deg); }
 }
 
 /* ---- Flip cards ------------------------------------------------------
@@ -803,6 +916,13 @@ footer .nav-brand { font-size: 28px; }
 }
 @media (prefers-reduced-motion: reduce) and (hover: hover) {
   .sb-flip:hover .sb-flip-back { opacity: 1; }
+}
+
+/* Video play badge — scales up with a gold glow when its card is hovered */
+.sb-playbadge { transition: transform 0.28s var(--ease-out), box-shadow 0.28s var(--ease-out); }
+.card:hover .sb-playbadge {
+  transform: scale(1.12);
+  box-shadow: 0 10px 30px -6px color-mix(in srgb, var(--color-accent-2) 70%, transparent);
 }
 
 /* ---- Section heads -------------------------------------------------- */
@@ -1100,6 +1220,11 @@ footer .nav-brand { font-size: 28px; }
   }
   .sb-ticker-track { animation: none; transform: none; }
   .sb-player { transition: none; }
+  /* scroll-driven timelines ignore the duration override above, and the
+     parallax vars are belt-and-braces (site.js already self-disables) */
+  .card, .sb-flip, .sb-sectionhead { animation: none; }
+  .sb-drift::before, .sb-kenburns image-slot, .sb-livedot, .sb-float, .sb-stamp { animation: none; }
+  .sb-depth-photo, .sb-depth-text { transform: none; }
 }
 
 /* ====================================================================
