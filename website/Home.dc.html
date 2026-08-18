@@ -78,11 +78,14 @@
       </p>
     </div>
 
-    <figure class="sb-frame sb-depth-photo" style="justify-self: center; width: min(100%, 460px)">
-      <div class="sb-kenburns">
+    <!-- Two transform layers, deliberately separate: the outer div carries
+         the pointer parallax, the figure carries the ambient float. Both on
+         one element and the animation would clobber the parallax. -->
+    <div class="sb-depth-photo" style="justify-self: center; width: min(100%, 460px)">
+      <figure class="sb-frame sb-hero-float" style="width: 100%">
         <image-slot id="hero-photo" shape="rect" src="assets/hero-chains.jpg" placeholder="Drop a full-bleed hero photo" class="washed" style="width: 100%; aspect-ratio: 3 / 4"></image-slot>
-      </div>
-    </figure>
+      </figure>
+    </div>
 
   </div>
 </header>
