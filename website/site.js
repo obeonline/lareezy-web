@@ -121,6 +121,29 @@
       }
     }
   }
+  /* --------------------------------------------------- touch scroll */
+  /* image-slot.js sets `touch-action: none` on its internal <img> (shadow
+     DOM) so the canvas editor can drag to re-crop. On a served page that
+     editing path is inactive, and the side effect is that any swipe
+     starting on a photo is swallowed — you cannot scroll the page, or the
+     merch carousel, by dragging the picture.
+
+     Outer CSS can't reach into a shadow root, so we append a tiny
+     stylesheet to each one. Only `.frame img` is relaxed; the `.spill`
+     layer that actually handles editor panning keeps `touch-action: none`,
+     so drag-to-reframe still works inside the canvas. */
+  function patchSlotTouch() {
+    var slots = document.querySelectorAll('image-slot');
+    for (var i = 0; i < slots.length; i++) {
+      var sr = slots[i].shadowRoot;
+      if (!sr || sr.querySelector('style[data-sb-touch]')) continue;
+      var s = document.createElement('style');
+      s.setAttribute('data-sb-touch', '');
+      s.textContent = '.frame img{touch-action:manipulation !important}';
+      sr.appendChild(s);
+    }
+  }
+
   /* ------------------------------------------------------- parallax */
   /* Pointer-reactive hero. Normalized cursor position goes onto <html> as
      CSS custom properties — the DC runtime re-renders its own subtree but
@@ -165,17 +188,21 @@
      not exist yet, and depending on ordering no further mutation fires. A
      short bounded poll covers every ordering without racing the runtime; it
      stops as soon as it finds the cards, and gives up after ~4s regardless. */
+  function sync() { syncFlips(); patchSlotTouch(); }
+
   var tries = 0;
   (function stamp() {
-    syncFlips();
-    if (document.querySelector('.sb-flip') || ++tries > 40) return;
+    sync();
+    // stop once the runtime has rendered (flip cards on Home, slots
+    // elsewhere); the observer covers anything that renders later
+    if (document.querySelector('.sb-flip, image-slot') || ++tries > 40) return;
     setTimeout(stamp, 100);
   })();
 
-  document.addEventListener('DOMContentLoaded', syncFlips);
-  window.addEventListener('load', syncFlips);
+  document.addEventListener('DOMContentLoaded', sync);
+  window.addEventListener('load', sync);
   // childList only: the attribute writes above must not retrigger this.
-  new MutationObserver(syncFlips).observe(document.documentElement, {
+  new MutationObserver(sync).observe(document.documentElement, {
     childList: true,
     subtree: true,
   });

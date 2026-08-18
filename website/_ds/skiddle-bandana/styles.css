@@ -632,6 +632,20 @@ footer .nav-brand { font-size: 28px; }
   from { transform: scale(1); }
   to   { transform: scale(1.05); }
 }
+/* Touch devices get no pointer parallax, so the portrait is carrying the
+   hero on its own — give it a real slow drift-and-zoom instead of the
+   barely-there desktop breath. Starting at 1.06 keeps 3% of overhang each
+   side, so the ±1.5% pan never exposes an edge. */
+@media (hover: none) {
+  .sb-kenburns image-slot {
+    animation-name: sb-kenburns-touch;
+    animation-duration: 20s;
+  }
+}
+@keyframes sb-kenburns-touch {
+  from { transform: scale(1.06) translate(-1.5%, -1%); }
+  to   { transform: scale(1.14) translate(1.5%, 1%); }
+}
 
 /* Pointer parallax depth planes. site.js writes --sb-mx / --sb-my (-1..1)
    onto <html> — outside the DC runtime's re-render zone — and these glide
@@ -1223,7 +1237,8 @@ footer .nav-brand { font-size: 28px; }
   /* scroll-driven timelines ignore the duration override above, and the
      parallax vars are belt-and-braces (site.js already self-disables) */
   .card, .sb-flip, .sb-sectionhead { animation: none; }
-  .sb-drift::before, .sb-kenburns image-slot, .sb-livedot, .sb-float, .sb-stamp { animation: none; }
+  /* covers both the desktop and touch Ken Burns variants */
+  .sb-drift::before, .sb-kenburns image-slot, .sb-livedot, .sb-float, .sb-stamp { animation: none !important; }
   .sb-depth-photo, .sb-depth-text { transform: none; }
 }
 
